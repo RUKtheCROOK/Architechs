@@ -1,0 +1,56 @@
+.home {
+        background-color: grey;
+    
+    .sizesmall {
+        height: fit-content;
+    }
+    
+    @media (max-width: 500px) {
+        .hide2 {
+            display: none;
+        }
+    }
+    // smaller media than 576px
+    
+    @media (max-width: 575.98px) {
+        .sizesmall {
+            height: fit-content;
+        }
+    }
+    
+    @media (max-width: 767.98px) {
+        .hide {
+            display: none;
+        }
+    }
+    
+    .yellow {
+        background-color: rgb(250, 210, 49);
+    }
+    
+    .logo {
+        background-color: whitesmoke;
+        border-radius: 48%;
+        width: fit-content;
+        padding: 10px;
+    }
+    
+    img {
+        height: 300px;
+    }
+    
+    .flexbox {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .foot {
+        background-color: white;
+        height: fit-content;
+        margin-bottom: -20px;
+    }
+    h1{
+        color: Black;
+    }
+}

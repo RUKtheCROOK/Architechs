@@ -1,9 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import '../navbar.scss' // import the stylesheet
-import { Link } from "react-router-dom"; // import the react-router-dom module
+import '../navbar.scss';
+import { Link } from 'react-router-dom';
+import DataService from '../../services/dataServices';
 
 function ScrollListener() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isFixedTop, setIsFixedTop] = useState(false);
+
+  useEffect(() => {
+    const checkUserStatus = () => {
+      let dataService = new DataService();
+      let user = dataService.getLoggedInUser();
+      setIsLoggedIn(user !== null);
+    };
+
+    checkUserStatus();
+
+    const intervalId = setInterval(checkUserStatus, 500);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +36,50 @@ function ScrollListener() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  if (!isLoggedIn) {
+    return (
+      <div className={`navbar ${isFixedTop ? 'fixed-top' : ''}`} id="navbar">
+        <nav className="navbar navbar-expand-lg bg-body">
+          <div className="container-fluid">
+            <Link className="navbar-brand" to="/home">
+              Navbar
+            </Link>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarScroll"
+              aria-controls="navbarScroll"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="text-end">
+              <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" styles="--bs-scroll-height: 100px;">
+                <li className="nav-item">
+                  <Link className="nav-link link" aria-current="page" to="/home">
+                    🏡 Home
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link link" aria-current="page" to="/bids">
+                    Bids
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link link" aria-current="page" to="/login">
+                    Login
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    );
+  }
 
   return (
     <div className={`navbar ${isFixedTop ? 'fixed-top' : ''}`} id="navbar">

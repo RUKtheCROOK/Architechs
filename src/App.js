@@ -1,7 +1,7 @@
 import "bootstrap/dist/js/bootstrap.min.js"; // to use bootstrap javascript in App.js the css is in the scss file
 import './App.scss'; // to replace App.css and uses sass to compile the css for App.js
 //import the data service
-import DataService from "//services/dataServices"
+import DataService from './/services/dataServices'
 // import components
 // import Header from "./components/header";
 import Footer from "./components/footer";
@@ -47,6 +47,6 @@ function App() {
       <script src="https://kit.fontawesome.com/5f81d5fe89.js" crossorigin="anonymous"></script>
     </div> 
   );
-}
+  }
 
 export default App;

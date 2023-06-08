@@ -9,13 +9,15 @@ import DataService from '../services/dataServices'
 // import the react library
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 function Login() {
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
+
+const navigate = useNavigate();
 
 function validform() {
     return email.length > 0 && password.length > 0;
@@ -50,8 +52,8 @@ function handleSubmit(e) {
     let verify = dataService.verifyUser(user);
     if(verify){
         console.log('user is valid');
-        // if the user is valid then we need to redirect them to the home page
-        // window.location.href = '/';
+        // if the user is valid then we need to redirect them to the home page using a react router
+        navigate('/home');
     }
     else{
         console.log('user is not valid');

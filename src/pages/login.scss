@@ -1,4 +1,19 @@
 .login{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     h1{
-        color: black;}
+        color: blue;}
+    
+    .login-flex{
+        display : flex;
+        flex-direction: column;
+        width: fit-content;
+       align-self: center;
+       border: solid 3px black;
+    }
+    #submit{
+        width: fit-content;
+        align-self: center;
+    }
 }

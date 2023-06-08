@@ -1,5 +1,7 @@
 import "bootstrap/dist/js/bootstrap.min.js"; // to use bootstrap javascript in App.js the css is in the scss file
 import './App.scss'; // to replace App.css and uses sass to compile the css for App.js
+//import the data service
+import DataService from "//services/dataServices"
 // import components
 // import Header from "./components/header";
 import Footer from "./components/footer";
@@ -24,6 +26,8 @@ import Messages from './pages/messages';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
+  let dataService = new DataService();
+  let user = dataService.getLoggedInUser();
   return (
     <div className="App">
       <BrowserRouter>

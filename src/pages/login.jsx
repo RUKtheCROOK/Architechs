@@ -62,6 +62,7 @@ function handleSubmit(e) {
 
     return (
         <div className="login">
+            <img src="/images/pexels-photo-2908957.webp" alt="background"/>
             <h1>Login Page</h1>
             <div>
             <form>

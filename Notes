@@ -1,1 +1,4 @@
-Test
+Changed "Navbar to Architech" 6/9/23
+working in login.jsx
+Setting the background as an image and moving the form to the center on the page to overlap the image
+Added the .form-group to the scss and commented out the login-flex for now to test the output

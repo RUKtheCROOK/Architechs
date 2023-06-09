@@ -3,17 +3,34 @@
     display: flex;
     flex-direction: column;
     h1{
-        color: blue;}
-    
-    .login-flex{
-        display : flex;
-        flex-direction: column;
-        width: fit-content;
-       align-self: center;
-       border: solid 3px black;
+        color: blue;
     }
+    
+    // .login-flex{
+    //    display : flex;
+    //    flex-direction: column;
+    //    width: fit-content;
+    //    align-self: center;
+    //    border: solid 3px black;
+    // }
     #submit{
         width: fit-content;
         align-self: center;
     }
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .form-group{
+       
+       display : flex;
+       flex-direction: column;
+       width: 100%;
+       height: 100%;
+       align-items: center;
+       justify-content: center;
+       top: 0;
+    }
+   
 }

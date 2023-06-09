@@ -14,7 +14,7 @@ function Home(){
                     </div>
                 </div>
             </div>
-            <div className="container text-center"><p>Feed Preview</p></div>
+            <div className="container text-center"><p>Check The Feed</p></div>
             <div id="carouselExampleCaptions" className="carousel slide">
                 <div className="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>

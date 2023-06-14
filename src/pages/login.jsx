@@ -49,16 +49,22 @@ function handleSubmit(e) {
         email: email,
         password: password
     }
+    let verifyEmail = dataService.verifyEmail(user.email);
     let verify = dataService.verifyUser(user);
     if(verify){
         console.log('user is valid');
         // if the user is valid then we need to redirect them to the home page using a react router
         navigate('/home');
     }
-    else{
+    if(verifyEmail && !verify){
+        console.log('user is recognized, password is incorrect');
+        alert('user is recognized, password is incorrect, please try again');
+    }
+    if(!verifyEmail){
         console.log('user is not valid');
-    }
-    }
+        alert('user is not valid, please signup');
+        navigate('/signup');
+    }}
 
     return (
         <div className="login">

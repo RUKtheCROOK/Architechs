@@ -17,6 +17,7 @@ import Profile from './pages/profile';
 import Feed from './pages/feed';
 import Bids from './pages/bids';
 import Login from './pages/login';
+import Logout from './pages/logout';
 import Signup from './pages/signup';
 // import Logout from './pages/logout';
 import Messages from './pages/messages';
@@ -41,6 +42,7 @@ function App() {
           <Route path="/messages" element={<Messages />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} /> 
         </Routes>
         <Footer />
       </BrowserRouter>

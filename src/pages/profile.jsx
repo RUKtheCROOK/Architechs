@@ -4,11 +4,12 @@ import DataService from '../services/dataServices';
 
 function Profile() {
     let dataService = new DataService();
-    let user = dataService.getLoggedInUser();
+    let loggedInUser = dataService.getLoggedInUser();
     return (
         <div className="profile container">
             <h1>Profile Page</h1>
-            <p>the current logged in user is: {user.name}</p>
+            <p>the current logged in user is: {loggedInUser.name}</p>
+            <p>the id for the profile you are wanting to view is {}</p>
         </div>
     )
 }

@@ -105,7 +105,7 @@ function ScrollListener() {
                         <Link className="nav-link link" aria-current="page" to="/profile">profile</Link>
                         </li>
                         <li className="nav-item">
-                        <Link className="nav-link link" aria-current="page" to="/login">login</Link>
+                        <Link className="nav-link link" aria-current="page" to="/logout">logout</Link>
                         </li>
                         <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

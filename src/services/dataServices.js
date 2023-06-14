@@ -1,4 +1,4 @@
-
+import axios from "axios";
 // this will be the temp page that holds all the data services until we can get them into the database
 let users = [
     {
@@ -155,4 +155,118 @@ class DataService {
     }
 }
 
+// Axios compatability
+// class DataService {
+//     async getUsers() {
+//       try {
+//         const response = await axios.get('/api/users');
+//         return response.data;
+//       } catch (error) {
+//         console.error('Error getting users:', error);
+//         throw error;
+//       }
+//     }
+  
+//     async getTotalUsers() {
+//       try {
+//         const response = await axios.get('/api/users/count');
+//         return response.data;
+//       } catch (error) {
+//         console.error('Error getting total users:', error);
+//         throw error;
+//       }
+//     }
+  
+//     async saveUser(user) {
+//       try {
+//         const response = await axios.post('/api/users', user);
+//         return response.data;
+//       } catch (error) {
+//         console.error('Error saving user:', error);
+//         throw error;
+//       }
+//     }
+  
+//     async verifyEmail(email) {
+//       try {
+//         const response = await axios.get(`/api/verifyEmail/${email}`);
+//         return response.data;
+//       } catch (error) {
+//         console.error('Error verifying email:', error);
+//         throw error;
+//       }
+//     }
+  
+//     async verifyUser(user) {
+//       try {
+//         const response = await axios.post('/api/verifyUser', user);
+//         return response.data;
+//       } catch (error) {
+//         console.error('Error verifying user:', error);
+//         throw error;
+//       }
+//     }
+  
+//     async getLoggedInUser() {
+//       try {
+//         const response = await axios.get('/api/loggedInUser');
+//         return response.data;
+//       } catch (error) {
+//         console.error('Error getting logged in user:', error);
+//         throw error;
+//       }
+//     }
+  
+//     async logout() {
+//       try {
+//         const response = await axios.post('/api/logout');
+//         return response.data;
+//       } catch (error) {
+//         console.error('Error logging out:', error);
+//         throw error;
+//       }
+//     }
+  
+//     async findUserByName(name) {
+//       try {
+//         const response = await axios.get(`/api/users/name/${name}`);
+//         return response.data;
+//       } catch (error) {
+//         console.error('Error finding user by name:', error);
+//         throw error;
+//       }
+//     }
+  
+//     async findUserById(id) {
+//       try {
+//         const response = await axios.get(`/api/users/id/${id}`);
+//         return response.data;
+//       } catch (error) {
+//         console.error('Error finding user by ID:', error);
+//         throw error;
+//       }
+//     }
+  
+//     async changeRequestedUserId(id) {
+//       try {
+//         const response = await axios.post('/api/changeRequestedUserId', { id });
+//         return response.data;
+//       } catch (error) {
+//         console.error('Error changing requested user ID:', error);
+//         throw error;
+//       }
+//     }
+  
+//     async getRequestedUserId() {
+//       try {
+//         const response = await axios.get('/api/requestedUserId');
+//         return response.data;
+//       } catch (error) {
+//         console.error('Error getting requested user ID:', error);
+//         throw error;
+//       }
+//     }
+//   }
+  
+//   export default DataService;
 export default DataService;

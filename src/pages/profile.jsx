@@ -18,15 +18,23 @@ function Profile() {
     fetchLoggedInUser();
   }, []);
 
+  console.log('loggedInUser:', loggedInUser);
+  
+  if (!loggedInUser) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className="profile container">
-      <h1>Profile Page</h1>
-      {loggedInUser ? (
-        <p>The current logged in user is: {loggedInUser.name}</p>
-      ) : (
-        <p>Loading...</p>
-      )}
-      <p>The ID for the profile you are wanting to view is {}</p>
+    <div className="profile">
+      <h1>Profile</h1>
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">Name: {loggedInUser.name}</h5>
+          <h6 className="card-subtitle mb-2 text-muted">Email: {loggedInUser.email}</h6>
+          <p className="card-text">UserID: {loggedInUser._id}</p>
+        
+        </div>
+      </div>
     </div>
   );
 }

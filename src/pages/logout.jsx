@@ -3,14 +3,18 @@ import './logout.scss'
 import DataService from '../services/dataServices'
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import DataContext from '../global/dataContext';
 
 function Logout() {
     const navigate = useNavigate();
+    const { loggedInUser, fetchLoggedInUser } = useContext(DataContext);
 
     function handleLogout(e) {
         console.log('user is logging out');
         let dataService = new DataService();
         dataService.logout();
+        fetchLoggedInUser();
         navigate('/login');
     }
 

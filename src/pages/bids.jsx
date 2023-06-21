@@ -1,19 +1,33 @@
-// This is the page where all of the bidding will be done
-
-// import the react library
-import React from 'react';
-
-// import the bidding component
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import BidsComponent from '../components/bidsComponent';
+import DataService from '../services/dataServices';
 
-// this is the bids page
 function Bids() {
-    return (
-        <div className="bids container">
-            <h1>Bids Page</h1>
-            <BidsComponent />
-        </div>
-    )
+  const [bids, setBids] = useState([]);
+  const dataService = new DataService();
+
+  useEffect(() => {
+    fetchBids();
+  }, []);
+
+  async function fetchBids() {
+    try {
+      const response = await dataService.getBids();
+      setBids(response);
+    } catch (error) {
+      console.error('Error getting bids:', error);
+      // Handle error
+    }
+  }
+
+  return (
+    <div className="bids">
+      {bids.map((bid) => (
+        <BidsComponent key={bid._id} bid={bid} />
+      ))}
+    </div>
+  );
 }
 
 export default Bids;

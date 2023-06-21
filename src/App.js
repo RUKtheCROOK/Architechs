@@ -22,6 +22,9 @@ import Signup from './pages/signup';
 // import Logout from './pages/logout';
 import Messages from './pages/messages';
 
+// global data
+import GlobalData from './global/globalData';
+
 
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -30,6 +33,7 @@ function App() {
   let dataService = new DataService();
   let user = dataService.getLoggedInUser();
   return (
+    <GlobalData>
     <div className="App">
       <BrowserRouter>
         <ScrollingNavbar />
@@ -48,6 +52,7 @@ function App() {
       </BrowserRouter>
       <script src="https://kit.fontawesome.com/5f81d5fe89.js" crossorigin="anonymous"></script>
     </div> 
+  </GlobalData>
   );
   }
 

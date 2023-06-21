@@ -2,26 +2,14 @@ import React, { useEffect, useState } from 'react';
 import '../navbar.scss';
 import { Link } from 'react-router-dom';
 import DataService from '../../services/dataServices';
+import { useContext } from 'react';
+import DataContext from '../../global/dataContext';
 
 function ScrollListener() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isFixedTop, setIsFixedTop] = useState(false);
-
-  useEffect(() => {
-    const checkUserStatus = async () => {
-      let dataService = new DataService();
-      let user = await dataService.getLoggedInUser();
-      setIsLoggedIn(user !== null);
-    };
-
-    checkUserStatus();
-
-    const intervalId = setInterval(checkUserStatus, 500);
-
-    
-
-    return () => clearInterval(intervalId);
-  }, []);
+  const dataService = new DataService();
+  const { loggedInUser } = useContext(DataContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +27,7 @@ function ScrollListener() {
     };
   }, []);
 
-  if (!isLoggedIn) {
+  if (!loggedInUser) {
     return (
       <div className={`navbar ${isFixedTop ? 'fixed-top' : ''}`} id="navbar">
         <nav className="navbar navbar-expand-lg bg-body">

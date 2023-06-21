@@ -1,46 +1,46 @@
 import axios from "axios";
 // this will be the temp page that holds all the data services until we can get them into the database
-let users = [
-    {
-        id: 1,
-        name: 'John Doe',
-        email: 'johndoe@test.com',
-        password: 'password'
-    },
-    {
-        id: 2,
-        name: 'Bob Williams',
-        email: 'bobwilliams@test.com',
-        password: 'password'
-    },
-    {
-        id: 3,
-        name: 'Shannon Jackson',
-        email: 'shannonjackson@test.com',
-        password: 'password'
-    }
-];
+// let users = [
+//     {
+//         id: 1,
+//         name: 'John Doe',
+//         email: 'johndoe@test.com',
+//         password: 'password'
+//     },
+//     {
+//         id: 2,
+//         name: 'Bob Williams',
+//         email: 'bobwilliams@test.com',
+//         password: 'password'
+//     },
+//     {
+//         id: 3,
+//         name: 'Shannon Jackson',
+//         email: 'shannonjackson@test.com',
+//         password: 'password'
+//     }
+// ];
 
-let bids = [
-    {
-        originalPosterId: 1,
-        name: 'hospital',
-        description: 'I need a hospital built',
-        bidAmount: 1000000,
-        bidId: 1},
-    {
-        originalPosterId: 2,
-        name: 'school',
-        description: 'I need a school built',
-        bidAmount: 2000000,
-        bidId: 2},
-    {
-        originalPosterId: 3,
-        name: 'mall',
-        description: 'I need a mall built',
-        bidAmount: 3000000,
-        bidId: 3}
-]
+// let bids = [
+//     {
+//         originalPosterId: 1,
+//         name: 'hospital',
+//         description: 'I need a hospital built',
+//         bidAmount: 1000000,
+//         bidId: 1},
+//     {
+//         originalPosterId: 2,
+//         name: 'school',
+//         description: 'I need a school built',
+//         bidAmount: 2000000,
+//         bidId: 2},
+//     {
+//         originalPosterId: 3,
+//         name: 'mall',
+//         description: 'I need a mall built',
+//         bidAmount: 3000000,
+//         bidId: 3}
+// ]
 
 let bidders = [
     {
@@ -179,7 +179,7 @@ class DataService {
   
     async saveUser(user) {
       try {
-        const response = await axios.post('http://127.0.0.1:5000/api/users', user);
+        const response = await axios.post('http://127.0.0.1:5000/api/saveUsers', {params: {name: user.name, email: user.email, password: user.password},  withCredentials: true });
         return response.data;
       } catch (error) {
         console.error('Error saving user:', error);
@@ -268,5 +268,35 @@ class DataService {
         throw error;
       }
     }
+
+    async getBids() {
+        try {
+          const response = await axios.get('http://127.0.0.1:5000/api/bids');
+          return response.data;
+        } catch (error) {
+          console.error('Error getting bids:', error);
+          throw error;
+        }
   }
+
+    async totalBids() {
+        try {
+          const response = await axios.get('http://127.0.0.1:5000/api/bids/total');
+          return response.data;
+        } catch (error) {
+          console.error('Error getting total bids:', error);
+          throw error;
+        }
+  }
+
+    async saveBid(bid) {
+        try {
+          const response = await axios.post('http://127.0.0.1:5000/api/bids/saveBid', {params: {originalPosterId: bid.originalPosterId, name: bid.name, description: bid.description, bidAmount: bid.bidAmount},  withCredentials: true });
+          return response.data;
+        } catch (error) {
+          console.error('Error saving bid:', error);
+          throw error;
+        }
+  }
+}
 export default DataService;

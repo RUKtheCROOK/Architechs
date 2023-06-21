@@ -10,10 +10,14 @@ import DataService from "../services/dataServices";
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useContext } from "react";
+import DataContext from "../global/dataContext";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { loggedInUser, fetchLoggedInUser } = useContext(DataContext);
 
   const navigate = useNavigate();
 
@@ -50,6 +54,7 @@ function Login() {
       console.log("user is valid");
       // if the user is valid then we need to redirect them to the home page using a react router
       navigate("/home");
+      await fetchLoggedInUser();
     } else {
       let verifyEmail = await dataService.verifyEmail(user.email);
       if (verifyEmail && !verify) {

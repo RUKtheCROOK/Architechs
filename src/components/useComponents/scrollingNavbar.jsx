@@ -16,7 +16,7 @@ function ScrollListener() {
 
     checkUserStatus();
 
-    const intervalId = setInterval(checkUserStatus, 5000);
+    const intervalId = setInterval(checkUserStatus, 500);
 
     
 

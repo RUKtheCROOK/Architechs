@@ -87,185 +87,186 @@ let messages = [
 
 
 
-let loggedInUser = null;
-let requestedUserId = null;
-class DataService {
-    getUsers() {
-        return users;
-    }
-    getTotalUsers() {
-        return users.length;
-    }
-    saveUser(user) {
-        users.push(user);
-        console.log(users);
-        return users;
-    }
+// let loggedInUser = null;
+// let requestedUserId = null;
+// class DataService {
+//     getUsers() {
+//         return users;
+//     }
+//     getTotalUsers() {
+//         return users.length;
+//     }
+//     saveUser(user) {
+//         users.push(user);
+//         console.log(users);
+//         return users;
+//     }
 
-    verifyEmail(email) {
-        let verified = false;
-        users.forEach((item) => {
-            if (item.email === email) {
-                verified = true
-            }
-        });
-        return verified;
-    }
-    verifyUser(user) {
-        let verified = false;
-        users.forEach((item) => {
-            if (item.email === user.email && item.password === user.password) {
-                verified = true
-                loggedInUser = item;
-            }
-        });
-        return verified;
-    }
-    getLoggedInUser() {
-        return loggedInUser;
-    }
-    logout() {
-        loggedInUser = null;
-        return loggedInUser;
-    }
-    findUserByName(name) {
-        let user = null;
-        users.forEach((item) => {
-            if (item.name === name) {
-                user = item;
-            }
-        });
-        return user;
-    }
-    findUserById(id) {  
-        let user = null;
-        users.forEach((item) => {
-            if (item.id === id) {
-                user = item;
-            }
-        });
-        return user;
-    }
+//     verifyEmail(email) {
+//         let verified = false;
+//         users.forEach((item) => {
+//             if (item.email === email) {
+//                 verified = true
+//             }
+//         });
+//         return verified;
+//     }
+//     verifyUser(user) {
+//         let verified = false;
+//         users.forEach((item) => {
+//             if (item.email === user.email && item.password === user.password) {
+//                 verified = true
+//                 loggedInUser = item;
+//             }
+//         });
+//         return verified;
+//     }
+//     getLoggedInUser() {
+//         return loggedInUser;
+//     }
+//     logout() {
+//         loggedInUser = null;
+//         return loggedInUser;
+//     }
+//     findUserByName(name) {
+//         let user = null;
+//         users.forEach((item) => {
+//             if (item.name === name) {
+//                 user = item;
+//             }
+//         });
+//         return user;
+//     }
+//     findUserById(id) {  
+//         let user = null;
+//         users.forEach((item) => {
+//             if (item.id === id) {
+//                 user = item;
+//             }
+//         });
+//         return user;
+//     }
 
-    changeRequestedUserId(id) {
-        requestedUserId = id;
-    }
-    requestedUserId() {
-        return requestedUserId;
-    }
-}
+//     changeRequestedUserId(id) {
+//         requestedUserId = id;
+//     }
+//     requestedUserId() {
+//         return requestedUserId;
+//     }
+// }
 
 // Axios compatability
-// class DataService {
-//     async getUsers() {
-//       try {
-//         const response = await axios.get('http://127.0.0.1:5000/api/users');
-//         return response.data;
-//       } catch (error) {
-//         console.error('Error getting users:', error);
-//         throw error;
-//       }
-//     }
+class DataService {
+    async getUsers() {
+      try {
+        const response = await axios.get('http://127.0.0.1:5000/api/users');
+        return response.data;
+      } catch (error) {
+        console.error('Error getting users:', error);
+        throw error;
+      }
+    }
   
-//     async getTotalUsers() {
-//       try {
-//         const response = await axios.get('http://127.0.0.1:5000/api/users/total');
-//         return response.data;
-//       } catch (error) {
-//         console.error('Error getting total users:', error);
-//         throw error;
-//       }
-//     }
+    async getTotalUsers() {
+      try {
+        const response = await axios.get('http://127.0.0.1:5000/api/users/total');
+        return response.data;
+      } catch (error) {
+        console.error('Error getting total users:', error);
+        throw error;
+      }
+    }
   
-//     async saveUser(user) {
-//       try {
-//         const response = await axios.post('http://127.0.0.1:5000/api/users', user);
-//         return response.data;
-//       } catch (error) {
-//         console.error('Error saving user:', error);
-//         throw error;
-//       }
-//     }
+    async saveUser(user) {
+      try {
+        const response = await axios.post('http://127.0.0.1:5000/api/users', user);
+        return response.data;
+      } catch (error) {
+        console.error('Error saving user:', error);
+        throw error;
+      }
+    }
   
-//     async verifyEmail(email) {
-//       try {
-//         const response = await axios.get(`http://127.0.0.1:5000/api/users/verifyEmail/${email}`);
-//         return response.data;
-//       } catch (error) {
-//         console.error('Error verifying email:', error);
-//         throw error;
-//       }
-//     }
+    async verifyEmail(email) {
+      try {
+        const response = await axios.get(`http://127.0.0.1:5000/api/users/verifyEmail/${email}`);
+        return response.data;
+      } catch (error) {
+        console.error('Error verifying email:', error);
+        throw error;
+      }
+    }
   
-//     async verifyUser(user) {
-//         try {
-//             const response = await axios.get('http://127.0.0.1:5000/api/users/verifyUser', { params: { email: user.email, password: user.password } });
-//             return response.data;
-//         } catch (error) {
-//             console.error('Error verifying user:', error);
-//             throw error;
-//         }
-//     }
+    async verifyUser(user) {
+        try {
+            const response = await axios.get('http://127.0.0.1:5000/api/users/verifyUser', { params: { email: user.email, password: user.password }, withCredentials: true });
+            console.log(response);
+            return response.data;
+        } catch (error) {
+            console.error('Error verifying user:', error);
+            throw error;
+        }
+    }
   
-//     async getLoggedInUser() {
-//       try {
-//         const response = await axios.get('http://127.0.0.1:5000/api/users/loggedInUser');
-//         console.log(response.data);
-//         return response.data;
-//       } catch (error) {
-//         console.error('Error getting logged in user:', error);
-//         throw error;
-//       }
-//     }
+    async getLoggedInUser() {
+      try {
+        const response = await axios.get('http://127.0.0.1:5000/api/users/loggedInUser', { withCredentials: true });
+        console.log(response.data);
+        return response.data;
+      } catch (error) {
+        console.error('Error getting logged in user:', error);
+        throw error;
+      }
+    }
   
-//     async logout() {
-//       try {
-//         const response = await axios.post('http://127.0.0.1:5000/api/users/logout');
-//         return response.data;
-//       } catch (error) {
-//         console.error('Error logging out:', error);
-//         throw error;
-//       }
-//     }
+    async logout() {
+      try {
+        const response = await axios.post('http://127.0.0.1:5000/api/users/logout', null, { withCredentials: true });
+        return response.data;
+      } catch (error) {
+        console.error('Error logging out:', error);
+        throw error;
+      }
+    }
   
-//     async findUserByName(name) {
-//       try {
-//         const response = await axios.get(`http://127.0.0.1:5000/api/users/name/${name}`);
-//         return response.data;
-//       } catch (error) {
-//         console.error('Error finding user by name:', error);
-//         throw error;
-//       }
-//     }
+    async findUserByName(name) {
+      try {
+        const response = await axios.get(`http://127.0.0.1:5000/api/users/name/${name}`);
+        return response.data;
+      } catch (error) {
+        console.error('Error finding user by name:', error);
+        throw error;
+      }
+    }
   
-//     async findUserById(id) {
-//       try {
-//         const response = await axios.get(`http://127.0.0.1:5000/api/users/id/${id}`);
-//         return response.data;
-//       } catch (error) {
-//         console.error('Error finding user by ID:', error);
-//         throw error;
-//       }
-//     }
+    async findUserById(id) {
+      try {
+        const response = await axios.get(`http://127.0.0.1:5000/api/users/id/${id}`);
+        return response.data;
+      } catch (error) {
+        console.error('Error finding user by ID:', error);
+        throw error;
+      }
+    }
   
-//     async changeRequestedUserId(id) {
-//       try {
-//         const response = await axios.post('http://127.0.0.1:5000/api/users/changeRequestedUserId', { id });
-//         return response.data;
-//       } catch (error) {
-//         console.error('Error changing requested user ID:', error);
-//         throw error;
-//       }
-//     }
+    async changeRequestedUserId(id) {
+      try {
+        const response = await axios.post('http://127.0.0.1:5000/api/users/changeRequestedUserId', { id });
+        return response.data;
+      } catch (error) {
+        console.error('Error changing requested user ID:', error);
+        throw error;
+      }
+    }
   
-//     async getRequestedUserId() {
-//       try {
-//         const response = await axios.get('http://127.0.0.1:5000/api/users/requestedUserId');
-//         return response.data;
-//       } catch (error) {
-//         console.error('Error getting requested user ID:', error);
-//         throw error;
-//       }
-//     }
-//   }
+    async getRequestedUserId() {
+      try {
+        const response = await axios.get('http://127.0.0.1:5000/api/users/requestedUserId');
+        return response.data;
+      } catch (error) {
+        console.error('Error getting requested user ID:', error);
+        throw error;
+      }
+    }
+  }
 export default DataService;

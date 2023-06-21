@@ -1,3 +1,4 @@
+
 .login{
     align-items: center;
     display: flex;
@@ -6,13 +7,13 @@
         color: blue;
     }
     
-    // .login-flex{
-    //    display : flex;
-    //    flex-direction: column;
-    //    width: fit-content;
-    //    align-self: center;
-    //    border: solid 3px black;
-    // }
+    .login-flex{
+       display : flex;
+       flex-direction: column;
+       width: fit-content;
+       align-self: center;
+       border: solid 3px black;
+    }
     #submit{
         width: fit-content;
         align-self: center;
@@ -32,5 +33,11 @@
        justify-content: center;
        top: 0;
     }
+    // .backgroundImage{
+    //     width: 100%; /* Set the width of the div */
+    //     height: 100%; /* Set the height of the div */
+    //     // background-image: url('path/to/your/image.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+    //     object-fit: cover;
+    // }
    
 }

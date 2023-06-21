@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Signup() {
+const [name, setName] = useState('');
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 const [confirmPassword, setConfirmPassword] = useState('');
@@ -13,7 +14,7 @@ const [confirmPassword, setConfirmPassword] = useState('');
 const navigate = useNavigate();
 
 function validform() {
-    return email.length > 0 && password.length > 0 && confirmPassword.length > 0 && password === confirmPassword;
+    return email.length > 0 && password.length > 0 && confirmPassword.length > 0 && password === confirmPassword && name.length > 0;
 }
 
 function handleSubmit(e) {
@@ -36,6 +37,9 @@ function handleSubmit(e) {
     }
     else if(name === 'confirmPassword'){
         setConfirmPassword(text);
+    }
+    else if(name === 'name'){
+        setName(text);
     }
  }
 
@@ -61,6 +65,7 @@ function handleSubmit(e) {
         let id = dataService.getTotalUsers() + 1;
         let user = {
             id: id,
+            name: name,
             email: email,
             password: password
         }
@@ -76,6 +81,10 @@ function handleSubmit(e) {
             <h1>Signup Page</h1>
             <div>
             <form>
+    <div className="form-group">
+        <label for="formGroupExampleInput">Name</label>
+        <input onChange={textChange} name="name" type="text" className="form-control" placeholder="Enter name"/>
+    </div>
   <div className="form-group">
     <label for="formGroupExampleInput">Email</label>
     <input onChange={textChange} name="email" type="text" className="form-control" placeholder="Enter Email"/>

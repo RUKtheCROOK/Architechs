@@ -8,15 +8,17 @@ function ScrollListener() {
   const [isFixedTop, setIsFixedTop] = useState(false);
 
   useEffect(() => {
-    const checkUserStatus = () => {
+    const checkUserStatus = async () => {
       let dataService = new DataService();
-      let user = dataService.getLoggedInUser();
+      let user = await dataService.getLoggedInUser();
       setIsLoggedIn(user !== null);
     };
 
     checkUserStatus();
 
-    const intervalId = setInterval(checkUserStatus, 500);
+    const intervalId = setInterval(checkUserStatus, 5000);
+
+    
 
     return () => clearInterval(intervalId);
   }, []);
@@ -125,6 +127,5 @@ function ScrollListener() {
             </nav>
     </div>
   );
-}
-
+  }
 export default ScrollListener;

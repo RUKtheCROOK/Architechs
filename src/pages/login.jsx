@@ -56,6 +56,7 @@ function handleSubmit(e) {
         // if the user is valid then we need to redirect them to the home page using a react router
         navigate('/home');
     }
+    else{
     if(verifyEmail && !verify){
         console.log('user is recognized, password is incorrect');
         alert('user is recognized, password is incorrect, please try again');
@@ -64,7 +65,7 @@ function handleSubmit(e) {
         console.log('user is not valid');
         alert('user is not valid, please signup');
         navigate('/signup');
-    }}
+    }}}
 
     return (
         <div className="login">

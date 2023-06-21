@@ -159,7 +159,7 @@ class DataService {
 // class DataService {
 //     async getUsers() {
 //       try {
-//         const response = await axios.get('/api/users');
+//         const response = await axios.get('http://127.0.0.1:5000/api/users');
 //         return response.data;
 //       } catch (error) {
 //         console.error('Error getting users:', error);
@@ -169,7 +169,7 @@ class DataService {
   
 //     async getTotalUsers() {
 //       try {
-//         const response = await axios.get('/api/users/count');
+//         const response = await axios.get('http://127.0.0.1:5000/api/users/total');
 //         return response.data;
 //       } catch (error) {
 //         console.error('Error getting total users:', error);
@@ -179,7 +179,7 @@ class DataService {
   
 //     async saveUser(user) {
 //       try {
-//         const response = await axios.post('/api/users', user);
+//         const response = await axios.post('http://127.0.0.1:5000/api/users', user);
 //         return response.data;
 //       } catch (error) {
 //         console.error('Error saving user:', error);
@@ -189,7 +189,7 @@ class DataService {
   
 //     async verifyEmail(email) {
 //       try {
-//         const response = await axios.get(`/api/verifyEmail/${email}`);
+//         const response = await axios.get(`http://127.0.0.1:5000/api/users/verifyEmail/${email}`);
 //         return response.data;
 //       } catch (error) {
 //         console.error('Error verifying email:', error);
@@ -198,18 +198,19 @@ class DataService {
 //     }
   
 //     async verifyUser(user) {
-//       try {
-//         const response = await axios.post('/api/verifyUser', user);
-//         return response.data;
-//       } catch (error) {
-//         console.error('Error verifying user:', error);
-//         throw error;
-//       }
+//         try {
+//             const response = await axios.get('http://127.0.0.1:5000/api/users/verifyUser', { params: { email: user.email, password: user.password } });
+//             return response.data;
+//         } catch (error) {
+//             console.error('Error verifying user:', error);
+//             throw error;
+//         }
 //     }
   
 //     async getLoggedInUser() {
 //       try {
-//         const response = await axios.get('/api/loggedInUser');
+//         const response = await axios.get('http://127.0.0.1:5000/api/users/loggedInUser');
+//         console.log(response.data);
 //         return response.data;
 //       } catch (error) {
 //         console.error('Error getting logged in user:', error);
@@ -219,7 +220,7 @@ class DataService {
   
 //     async logout() {
 //       try {
-//         const response = await axios.post('/api/logout');
+//         const response = await axios.post('http://127.0.0.1:5000/api/users/logout');
 //         return response.data;
 //       } catch (error) {
 //         console.error('Error logging out:', error);
@@ -229,7 +230,7 @@ class DataService {
   
 //     async findUserByName(name) {
 //       try {
-//         const response = await axios.get(`/api/users/name/${name}`);
+//         const response = await axios.get(`http://127.0.0.1:5000/api/users/name/${name}`);
 //         return response.data;
 //       } catch (error) {
 //         console.error('Error finding user by name:', error);
@@ -239,7 +240,7 @@ class DataService {
   
 //     async findUserById(id) {
 //       try {
-//         const response = await axios.get(`/api/users/id/${id}`);
+//         const response = await axios.get(`http://127.0.0.1:5000/api/users/id/${id}`);
 //         return response.data;
 //       } catch (error) {
 //         console.error('Error finding user by ID:', error);
@@ -249,7 +250,7 @@ class DataService {
   
 //     async changeRequestedUserId(id) {
 //       try {
-//         const response = await axios.post('/api/changeRequestedUserId', { id });
+//         const response = await axios.post('http://127.0.0.1:5000/api/users/changeRequestedUserId', { id });
 //         return response.data;
 //       } catch (error) {
 //         console.error('Error changing requested user ID:', error);
@@ -259,7 +260,7 @@ class DataService {
   
 //     async getRequestedUserId() {
 //       try {
-//         const response = await axios.get('/api/requestedUserId');
+//         const response = await axios.get('http://127.0.0.1:5000/api/users/requestedUserId');
 //         return response.data;
 //       } catch (error) {
 //         console.error('Error getting requested user ID:', error);
@@ -267,6 +268,4 @@ class DataService {
 //       }
 //     }
 //   }
-  
-//   export default DataService;
 export default DataService;

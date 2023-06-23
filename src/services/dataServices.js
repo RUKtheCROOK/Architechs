@@ -272,12 +272,25 @@ class DataService {
     async getBids() {
         try {
           const response = await axios.get('http://127.0.0.1:5000/api/bids');
+          console.log('bids have been retrieved')
           return response.data;
         } catch (error) {
           console.error('Error getting bids:', error);
           throw error;
         }
   }
+
+  async getBid(id) {
+    try {
+      const response = await axios.get(`http://127.0.0.1:5000/api/bids/bid/${id}`);
+      console.log('bids have been retrieved by id')
+      return response.data;
+    } catch (error) {
+      console.error('Error getting bid:', error);
+      throw error;
+    }
+  }
+  
 
     async totalBids() {
         try {
@@ -291,12 +304,42 @@ class DataService {
 
     async saveBid(bid) {
         try {
-          const response = await axios.post('http://127.0.0.1:5000/api/bids/saveBid', {params: {originalPosterId: bid.originalPosterId, name: bid.name, description: bid.description, bidAmount: bid.bidAmount},  withCredentials: true });
+          const response = await axios.post('http://127.0.0.1:5000/api/bids/saveBid', {params: {originalPosterId: bid.originalPosterId, name: bid.name, description: bid.description, bidAmount: bid.bidAmount, bidImage: bid.image},  withCredentials: true });
           return response.data;
         } catch (error) {
           console.error('Error saving bid:', error);
           throw error;
         }
   }
+
+  async bidOnProject(bid, loggedInUser, bidAmount) {
+    try {
+      const response = await axios.post('http://127.0.0.1:5000/api/bids/bidOnProject', {
+        params: {
+          bidId: bid._id,
+          bidderId: loggedInUser._id,
+          bidderName: loggedInUser.name,
+          bidAmount: bidAmount,
+        }
+      }, {
+        withCredentials: true
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error bidding on project:', error);
+      throw error;
+    }
+  }
+  
+
+    async getDateTime() {
+        try {
+          const response = await axios.get('http://127.0.0.1:5000/api/currentDateTime');
+          return response.data;
+        } catch (error) {
+          console.error('Error getting date/time:', error);
+          throw error;
+        }
+}
 }
 export default DataService;

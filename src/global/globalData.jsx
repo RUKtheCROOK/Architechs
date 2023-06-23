@@ -1,45 +1,61 @@
 import DataContext from "./dataContext";
-import React, { createContext, useState, useEffect } from "react";
-import DataService from "../services/dataServices";
+import React, { createContext, useState, useEffect } from 'react';
+import DataService from '../services/dataServices';
 
 function GlobalData(properties) {
-  // for logged in users
   const dataService = new DataService();
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [bids, setBids] = useState([]);
+  const [currentDateTime, setCurrentDateTime] = useState(null);
 
   async function fetchLoggedInUser() {
     try {
       const user = await dataService.getLoggedInUser();
       setLoggedInUser(user);
     } catch (error) {
-      console.error("Error retrieving logged in user:", error);
+      console.error('Error retrieving logged in user:', error);
     }
   }
-
-  // Fetch the logged-in user when the component mounts
-  useEffect(() => {
-    fetchLoggedInUser();
-  }, []);
-
-  // for bids
-  const [bids, setBids] = useState([]);
-
-  useEffect(() => {
-    fetchBids();
-  }, []);
 
   async function fetchBids() {
     try {
-      const bids = await dataService.getBids();
-      setBids(bids);
+      const fetchedBids = await dataService.getBids();
+      console.log('fetchedBids:', fetchedBids);
+      setBids(fetchedBids);
     } catch (error) {
-      console.error("Error retrieving bids:", error);
+      console.error('Error retrieving bids:', error);
     }
   }
 
+  async function recallBids() {
+    try {
+      const fetchedBids = await dataService.getBids();
+      setBids(fetchedBids);
+    } catch (error) {
+      console.error('Error retrieving bids:', error);
+    }
+  }
+
+  // for current date time
+  async function getCurrentDateTime() {
+    try {
+      const time = await dataService.getDateTime();
+      return time;
+    } catch (error) {
+      console.error('Error retrieving current date and time:', error);
+    }
+  }
+
+
+  useEffect(() => {
+    fetchLoggedInUser();
+    fetchBids();
+    getCurrentDateTime();
+  }, []);
+
   return (
     <DataContext.Provider
-      value={{ loggedInUser, fetchLoggedInUser, bids, fetchBids }}
+      value={{ loggedInUser, fetchLoggedInUser, bids, fetchBids, recallBids, getCurrentDateTime}}
     >
       {properties.children}
     </DataContext.Provider>

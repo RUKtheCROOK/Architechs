@@ -17,7 +17,7 @@ import Logout from './pages/logout';
 import Signup from './pages/signup';
 import Messages from './pages/messages';
 import DetailBid from "./pages/detailBid";
-
+import BidCreation from "./pages/bidCreation";
 // global data
 import GlobalData from './global/globalData';
 
@@ -44,7 +44,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} /> \
           <Route path="/bid/:id" element={<DetailBid />} />
-                  </Routes>
+          <Route path="/bidCreation" element={<BidCreation />} />
+        </Routes>
         <Footer />
       </BrowserRouter>
       <script src="https://kit.fontawesome.com/5f81d5fe89.js" crossorigin="anonymous"></script>

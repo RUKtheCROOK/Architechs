@@ -302,29 +302,52 @@ class DataService {
         }
   }
 
-    async saveBid(bid) {
+    async createBid(bid) {
         try {
-          const response = await axios.post('http://127.0.0.1:5000/api/bids/saveBid', {params: {originalPosterId: bid.originalPosterId, name: bid.name, description: bid.description, bidAmount: bid.bidAmount, bidImage: bid.image},  withCredentials: true });
+          const response = await axios.post('http://127.0.0.1:5000/api/bids/createBids', {
+            params: {
+              name: bid.name,
+              description: bid.description,
+              bidAmount: bid.bidAmount,
+              originalPosterId: bid.originalPosterId,
+            }
+          }, {
+            withCredentials: true
+          });
           return response.data;
         } catch (error) {
-          console.error('Error saving bid:', error);
+          console.error('Error creating bid:', error);
           throw error;
         }
   }
 
-  async bidOnProject(bid, loggedInUser, bidAmount) {
+  async bidOnProject(bid, loggedInUser, bidAmount, currentBidAmount) {
     try {
+      const parsedBidAmount = parseFloat(bidAmount);
+      const parsedCurrentBidAmount = parseFloat(currentBidAmount);
+      console.log('bidAmount:', parsedBidAmount);
+      console.log('currentBidAmount:', parsedCurrentBidAmount);
+      if (parsedBidAmount >= parsedCurrentBidAmount) {
+        console.log('Bid amount is greater than or equal to current bid amount');
+        alert('Bid amount is greater than or equal to current bid amount and will not be saved.');
+      }
+      if (parsedBidAmount === 0){
+        console.log('Bid amount is zero');
+        alert('Bid amount is zero and will not be saved. Please bid again.');
+      }
+      if (parsedBidAmount < parsedCurrentBidAmount && parsedBidAmount !== 0) {
       const response = await axios.post('http://127.0.0.1:5000/api/bids/bidOnProject', {
         params: {
           bidId: bid._id,
           bidderId: loggedInUser._id,
           bidderName: loggedInUser.name,
           bidAmount: bidAmount,
+          currentBidAmount: currentBidAmount
         }
       }, {
         withCredentials: true
       });
-      return response.data;
+      return response.data;}
     } catch (error) {
       console.error('Error bidding on project:', error);
       throw error;

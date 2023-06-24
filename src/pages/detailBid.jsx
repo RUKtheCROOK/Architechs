@@ -11,6 +11,7 @@ import DataContext from '../global/dataContext';
 function DetailBid() {
   const { id } = useParams();
   const dataService = new DataService();
+  const { loggedInUser } = useContext(DataContext);
 
   const [bid, setBid] = useState(null);
 
@@ -33,7 +34,7 @@ function DetailBid() {
       {bid && (
         <div className="card">
           <div className="card-body">
-            <img src={`../images/${bid.image}`} alt="bid" />
+            <img src={`${bid.image}`} alt="bid" />
             <h5 className="card-title">Name: {bid.name}</h5>
             <h6 className="card-subtitle mb-2 text-muted">
               Description: {bid.description}
@@ -51,7 +52,7 @@ function DetailBid() {
             <h6 className="card-subtitle mb-2 text-muted">
               Last Bid On: {bid.lastBidDate}
             </h6>
-            <BidderComponent bid={bid} fetchBidById={fetchBidById}/>
+            {loggedInUser && (<BidderComponent bid={bid} fetchBidById={fetchBidById}/>)}
           </div>
         </div>
       )}

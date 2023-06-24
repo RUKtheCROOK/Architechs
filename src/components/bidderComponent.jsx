@@ -9,6 +9,7 @@ function BidderComponent({ bid, fetchBidById}) {
   const dataService = new DataService();
   const { loggedInUser, fetchLoggedInUser } = useContext(DataContext);
   const {fetchBids} = useContext(DataContext);
+  const currentBid = bid.bidAmount;
 
     useEffect(() => {
     fetchLoggedInUser();
@@ -18,7 +19,8 @@ function BidderComponent({ bid, fetchBidById}) {
       const updatedBid = await dataService.bidOnProject(
         bid,
         loggedInUser,
-        bidAmount
+        bidAmount,
+        currentBid
       );
         await fetchLoggedInUser();
         await fetchBids();
@@ -27,6 +29,10 @@ function BidderComponent({ bid, fetchBidById}) {
       console.error('Error bidding on project:', error);
       // Handle error
     }
+  }
+
+  function textChange(event) {
+    setBidAmount(event.target.value);
   }
 
   return (
@@ -40,7 +46,7 @@ function BidderComponent({ bid, fetchBidById}) {
               className="bidderComponent__bid__input"
               placeholder="Enter your bid"
               value={bidAmount}
-              onChange={(event) => setBidAmount(event.target.value)}
+              onChange={textChange}
             />
             <button className="btn btn-primary" onClick={handleBid}>
               Bid

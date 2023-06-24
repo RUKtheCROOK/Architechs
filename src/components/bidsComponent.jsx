@@ -16,7 +16,7 @@ function BidsComponent({ bid }) {
       <div className="card">
         <div className="card-body">
           {/* add an image */}
-          <img src={"../images/" + bid.image} alt="bid" />
+          <img src={bid.image} alt="bid" />
           <h5 className="card-title">Name: {bid.name}</h5>
           <h6 className="card-subtitle mb-2 text-muted">Description: {bid.description}</h6>
           <h6 className="card-subtitle mb-2 text-muted">Current Bid Amount: {bid.bidAmount}</h6>

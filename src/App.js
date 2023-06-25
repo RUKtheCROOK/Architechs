@@ -9,18 +9,17 @@ import Footer from "./components/footer";
 import ScrollingNavbar from './components/useComponents/scrollingNavbar'; //this is the navbar that scrolls with the page
 // import pages
 import Home from "./pages/home";
-// import About from "./pages/about";
-// import Contact from "./pages/contact";
-// import Projects from "./pages/projects";
-// import Resume from "./pages/resume";
 import Profile from './pages/profile';
 import Feed from './pages/feed';
 import Bids from './pages/bids';
 import Login from './pages/login';
 import Logout from './pages/logout';
 import Signup from './pages/signup';
-// import Logout from './pages/logout';
 import Messages from './pages/messages';
+import DetailBid from "./pages/detailBid";
+import BidCreation from "./pages/bidCreation";
+// global data
+import GlobalData from './global/globalData';
 
 
 
@@ -30,6 +29,7 @@ function App() {
   let dataService = new DataService();
   let user = dataService.getLoggedInUser();
   return (
+    <GlobalData>
     <div className="App">
       <BrowserRouter>
         <ScrollingNavbar />
@@ -42,12 +42,15 @@ function App() {
           <Route path="/messages" element={<Messages />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Logout />} /> 
+          <Route path="/logout" element={<Logout />} /> \
+          <Route path="/bid/:id" element={<DetailBid />} />
+          <Route path="/bidCreation" element={<BidCreation />} />
         </Routes>
         <Footer />
       </BrowserRouter>
       <script src="https://kit.fontawesome.com/5f81d5fe89.js" crossorigin="anonymous"></script>
     </div> 
+  </GlobalData>
   );
   }
 

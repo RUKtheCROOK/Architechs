@@ -49,7 +49,8 @@ function handleSubmit(e) {
         email: email,
     }
     let verifyEmail = dataService.verifyEmail(userEmail.email);
-    if(verifyEmail){
+    console.log(verifyEmail);
+    if(verifyEmail.data){
         console.log('user is already in the system');
         alert('user is already in the system, please login once redirected');
         navigate('/login')
@@ -62,15 +63,14 @@ function handleSubmit(e) {
 
     function saveUser(){
         let dataService = new DataService();
-        let id = dataService.getTotalUsers() + 1;
         let user = {
-            id: id,
             name: name,
             email: email,
             password: password
         }
+        console.log(user);
         dataService.saveUser(user);
-        alert('user has been saved');
+        alert('user has been saved as');
         navigate('/login');
     }
 

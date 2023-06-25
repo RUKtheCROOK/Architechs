@@ -2,26 +2,14 @@ import React, { useEffect, useState } from 'react';
 import '../navbar.scss';
 import { Link } from 'react-router-dom';
 import DataService from '../../services/dataServices';
+import { useContext } from 'react';
+import DataContext from '../../global/dataContext';
 
 function ScrollListener() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isFixedTop, setIsFixedTop] = useState(false);
-
-  useEffect(() => {
-    const checkUserStatus = async () => {
-      let dataService = new DataService();
-      let user = await dataService.getLoggedInUser();
-      setIsLoggedIn(user !== null);
-    };
-
-    checkUserStatus();
-
-    const intervalId = setInterval(checkUserStatus, 5000);
-
-    
-
-    return () => clearInterval(intervalId);
-  }, []);
+  const dataService = new DataService();
+  const { loggedInUser } = useContext(DataContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +27,7 @@ function ScrollListener() {
     };
   }, []);
 
-  if (!isLoggedIn) {
+  if (!loggedInUser) {
     return (
       <div className={`navbar ${isFixedTop ? 'fixed-top' : ''}`} id="navbar">
         <nav className="navbar navbar-expand-lg bg-body">
@@ -115,7 +103,7 @@ function ScrollListener() {
                         </a>
                         <ul className="dropdown-menu">
                             <li><Link className="dropdown-item" to="/messages">Direct Messages</Link></li>
-                            <li><a className="dropdown-item" href="#">Group Messages</a></li>
+                            <li><Link className="dropdown-item" to="/bidCreation">Bid Creation</Link></li>
                             <li><hr className="dropdown-divider"/></li>
                             <li><a className="dropdown-item" href="#">Company Messages</a></li>
                         </ul>

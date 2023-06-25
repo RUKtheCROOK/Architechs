@@ -10,10 +10,10 @@ function Logout() {
     const navigate = useNavigate();
     const { loggedInUser, fetchLoggedInUser } = useContext(DataContext);
 
-    function handleLogout(e) {
+    async function handleLogout(e) {
         console.log('user is logging out');
         let dataService = new DataService();
-        dataService.logout();
+        await dataService.logout();
         fetchLoggedInUser();
         navigate('/login');
     }

@@ -10,7 +10,7 @@ import DataService from '../services/dataServices'
 import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import "src/styles/image/background.scss";
 
 
 function Login() {
@@ -68,15 +68,19 @@ function handleSubmit(e) {
     }}}
 
     return (
+       
+      
         <div className="login">
-            <img src="/images/pexels-photo-2908957.webp" alt="background"/>
+            {/* <img src="/images/pexels-photo-2908957.webp" alt="background" className="backgroundImage"/>   */}
             <h1>Login Page</h1>
             <div>
+            
             <form>
   <div className="form-group">
     <label for="formGroupExampleInput">Email</label>
     <input onChange={textChange} name="email" type="text" className="form-control" placeholder="Enter Email"/>
   </div>
+  
   <div className="form-group">
     <label for="formGroupExampleInput2">Password</label>
     <input onChange={textChange} name="password" type="password" className="form-control" placeholder="Enter Password"/>
@@ -85,7 +89,9 @@ function handleSubmit(e) {
 <button className='btn btn-dark' onClick={handleSubmit}>Login</button>
             <p>If you dont have an account signup below:</p>
             <Link to="/signup">Signup</Link>
-        </div></div>
+        </div>
+        </div>
+        
     )
 }
 

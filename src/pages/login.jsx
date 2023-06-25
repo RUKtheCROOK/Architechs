@@ -8,14 +8,14 @@ import DataService from "../services/dataServices";
 
 // import the react library
 
-=======
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useContext } from "react";
 import DataContext from "../global/dataContext";
->>>>>>> 58d5c5a54c2c57313d1a515d0247b1b285fcb5b0
+import "src/styles/background.scss";
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -72,7 +72,7 @@ function Login() {
     }
   }
 
-<<<<<<< HEAD
+
     return (
        
       
@@ -99,7 +99,7 @@ function Login() {
         </div>
         
     )
-=======
+
   return (
     <div className="login">
       <img src="/images/pexels-photo-2908957.webp" alt="background" />
@@ -135,7 +135,6 @@ function Login() {
       </div>
     </div>
   );
->>>>>>> 58d5c5a54c2c57313d1a515d0247b1b285fcb5b0
 }
 
 export default Login;

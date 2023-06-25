@@ -7,11 +7,6 @@ import "./login.scss";
 import DataService from "../services/dataServices";
 
 // import the react library
-<<<<<<< HEAD
-import React from 'react';
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import "src/styles/image/background.scss";
 
 =======
 import React from "react";

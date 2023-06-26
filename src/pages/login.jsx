@@ -14,7 +14,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useContext } from "react";
 import DataContext from "../global/dataContext";
-import "src/styles/background.scss";
+// import "src/styles/background.scss";
 
 
 function Login() {

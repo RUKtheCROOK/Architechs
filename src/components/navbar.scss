@@ -1,13 +1,22 @@
 // this is the scss for the navbar
 
-.navbar{
-    margin-left: auto;
-    margin-right: auto;
+.navbar {
+    height: 30px;
     width: 100%;
     background-color: white;
     color: black;
-
-    .link{
-        color: black;
+  
+    .link {
+      color: black;
     }
-}
+
+    // less than 576px
+    
+  
+  }
+
+  @media (max-width: 575.98px) {
+      .navbar {
+        height: fit-content;
+      }
+    }

@@ -364,5 +364,44 @@ class DataService {
           throw error;
         }
 }
+
+async getFeeds() {
+  try {
+    const response = await axios.get('http://127.0.0.1:5000/api/feeds');
+    return response.data;
+  } catch (error) {
+    console.error('Error getting feeds:', error);
+    throw error;
+  }
+}
+
+async getFeed(id) {
+  try {
+    const response = await axios.get(`http://127.0.0.1:5000/api/feeds/feed/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getting feed:', error);
+    throw error;
+  }
+}
+
+async handleLike(feed, loggedInUser) {
+  try {
+    const response = await axios.post('http://127.0.0.1:5000/api/feeds/likeFeed', {
+      params: {
+        feedId: feed._id,
+        likerId: loggedInUser._id,
+        likerName: loggedInUser.name
+      }
+    }, {
+      withCredentials: true
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error liking feed:', error);
+    throw error;
+  }
+}
+
 }
 export default DataService;

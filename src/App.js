@@ -19,6 +19,7 @@ import Messages from './pages/messages';
 import DetailBid from "./pages/detailBid";
 import BidCreation from "./pages/bidCreation";
 import DetailFeed from "./pages/detailFeed";
+import FeedCreation from "./pages/feedCreation";
 // global data
 import GlobalData from './global/globalData';
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/feed/:id" element={<DetailFeed />} />
+          <Route path="/feedCreation" element={<FeedCreation />} />
           <Route path="/bids" element={<Bids />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/signup" element={<Signup />} />

@@ -88,6 +88,7 @@ function ScrollListener() {
             <li><Link className="dropdown-item" to="/messages">Direct Messages</Link></li>
             <li><Link className="dropdown-item" to="/bidCreation">Bid Creation</Link></li>
             <li><hr className="dropdown-divider" /></li>
+            <li><Link className="dropdown-item" to="/feedCreation">Feed Creation</Link></li>
           </ul>
         </li>
       </ul>

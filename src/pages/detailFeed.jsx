@@ -5,12 +5,14 @@ import DataService from '../services/dataServices';
 import './detailBid.scss';
 import DataContext from '../global/dataContext';
 import FeedLikeUnlikeComponenet from '../components/feedLikeUnlikeComponent';
+import { useNavigate } from 'react-router-dom';
 
 function DetailFeed() {
   const { id } = useParams();
   const dataService = new DataService();
   const { loggedInUser } = useContext(DataContext);
   const [feed, setFeed] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchFeedById();
@@ -49,6 +51,11 @@ function DetailFeed() {
     }
   }
 
+  function deleteFeed() {
+    dataService.deleteFeed(feed);
+    navigate(`/feed`);
+  }
+
   if (!loggedInUser) {
     return (
         <div className="feed">
@@ -71,6 +78,7 @@ function DetailFeed() {
                 <h6 className="card-subtitle mb-2 text-muted">Likes: {feed.likes}</h6>
                 <p>Liked by: {renderLikedBy(feed.likedBy)}</p>
                 {loggedInUser && (<FeedLikeUnlikeComponenet feed={feed} fetchFeedById={fetchFeedById}/>)}
+                {loggedInUser._id === feed.originalPosterId && (<button className="btn btn-primary" onClick={deleteFeed} >Delete</button>)}
     </div>
     </div>
     )}

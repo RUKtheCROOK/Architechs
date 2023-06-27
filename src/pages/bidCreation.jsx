@@ -56,7 +56,7 @@ function BidCreation() {
         let createdBid = await dataService.createBid(bid);
         if (createdBid) {
         console.log('bid created');
-        navigate(`/bids/${createdBid._id}`);
+        navigate(`/bid/${createdBid}`);
         } else {
         console.log('bid not created');
         }

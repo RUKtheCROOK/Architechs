@@ -1,4 +1,5 @@
 import axios from "axios";
+import FeedCreation from './../pages/feedCreation';
 // this will be the temp page that holds all the data services until we can get them into the database
 // let users = [
 //     {
@@ -290,6 +291,17 @@ class DataService {
       throw error;
     }
   }
+
+  async getBidsHistory(id) {
+    try {
+      const response = await axios.get(`http://127.0.0.1:5000/api/bids/bidsHistory/${id}`);
+      console.log('bids history has been retrieved by id')
+      return response.data;
+    } catch (error) {
+      console.error('Error getting bids history:', error);
+      throw error;
+    }
+  }
   
 
     async totalBids() {
@@ -320,6 +332,21 @@ class DataService {
           throw error;
         }
   }
+
+  async deleteBid(bid) {
+    try {
+      const response = await axios.post('http://127.0.0.1:5000/api/bids/deleteBid', {
+        params: {
+          bidId: bid._id}
+      }, {
+        withCredentials: true
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error deleting bid:', error);
+      throw error;
+    }
+}
 
   async bidOnProject(bid, loggedInUser, bidAmount, currentBidAmount) {
     try {
@@ -399,6 +426,58 @@ async handleLike(feed, loggedInUser) {
     return response.data;
   } catch (error) {
     console.error('Error liking feed:', error);
+    throw error;
+  }
+}
+
+async createFeed(feed, loggedInUser) {
+  try {
+    const response = await axios.post('http://127.0.0.1:5000/api/feeds/createFeed', {
+      params: {
+        title: feed.title,
+        post: feed.post,
+        originalPosterId: feed.loggedInUser._id,
+        originalPosterName: feed.loggedInUser.name}
+    }, {
+      withCredentials: true
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error creating feed:', error);
+    throw error;
+  }
+}
+
+async deleteFeed(feed) {
+  try {
+    const response = await axios.post('http://127.0.0.1:5000/api/feeds/deleteFeed', {
+      params: {
+        feedId: feed._id}
+    }, {
+      withCredentials: true
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting feed:', error);
+    throw error;
+  }
+}
+
+async sendMessage(message, messageSender, messageReceiver) {
+  try {
+    const response = await axios.post('http://127.0.0.1:5000/api/messages/sendMessage', {
+      params: {
+        senderId: messageSender._id,
+        senderName: messageSender.name,
+        receiverId: messageReceiver,
+        message: message
+}
+    }, {
+      withCredentials: true
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error sending message:', error);
     throw error;
   }
 }

@@ -2,18 +2,52 @@
 
 // import the react library
 import React from 'react';
+import './messages.scss';
+import { useState, useEffect } from 'react';
+import DataService from '../services/dataServices';
+import { useContext } from 'react';
+import DataContext from '../global/dataContext';
+import { Link } from 'react-router-dom';
 
 // import the messages component
 import MessagesComponent from '../components/messagesComponent';
 
-// this is the messages page
-function Messages() {
+function Messages(){
+    const [messages, setMessages] = useState([]);
+    const dataService = new DataService();
+    const { loggedInUser, fetchLoggedInUser } = useContext(DataContext);
+
+  useEffect(() => {
+    fetchMessages();
+  }, []);
+
+  async function fetchMessages() {
+    try {
+      const response = await dataService.getMessages();
+      setMessages(response);
+    } catch (error) {
+      console.error('Error getting messages:', error);
+      // Handle error
+    }
+  }
+
+  if (!loggedInUser) {
     return (
+        <div className="messages">
+            <h1>Messages</h1>
+            <h2>Please login to view and send messages.</h2>
+        </div>
+    )
+    }
+
+    if (loggedInUser) {
+    return(
         <div className="messages container">
-            <h1>Messages Page</h1>
             <MessagesComponent />
         </div>
     )
 }
+}
+
 
 export default Messages;

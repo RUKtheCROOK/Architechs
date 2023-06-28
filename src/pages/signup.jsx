@@ -43,14 +43,14 @@ function handleSubmit(e) {
     }
  }
 
- function verifyUser(){
+ async function verifyUser(){
     let dataService = new DataService();
     let userEmail = {
         email: email,
     }
-    let verifyEmail = dataService.verifyEmail(userEmail.email);
+    let verifyEmail = await dataService.verifyEmail(userEmail.email);
     console.log(verifyEmail);
-    if(verifyEmail.data){
+    if(verifyEmail){
         console.log('user is already in the system');
         alert('user is already in the system, please login once redirected');
         navigate('/login')

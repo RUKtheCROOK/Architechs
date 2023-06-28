@@ -39,12 +39,12 @@ function MessagesComponent({}){
     }
 
     async function sendMessage() {
-        let message = {
+        let newMessage = {
         message: message,
         messageReciever: messageReciever,
-        messageSender: loggedInUser
+        loggedInUser
         };
-        let createdMessage = await dataService.createMessage(message);
+        let createdMessage = await dataService.sendMessage(newMessage);
         if (createdMessage) {
         console.log('message sent');
         fetchLoggedInUser();

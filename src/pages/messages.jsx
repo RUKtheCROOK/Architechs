@@ -7,10 +7,10 @@ import { useState, useEffect } from 'react';
 import DataService from '../services/dataServices';
 import { useContext } from 'react';
 import DataContext from '../global/dataContext';
-import { Link } from 'react-router-dom';
 
 // import the messages component
 import MessagesComponent from '../components/messagesComponent';
+import RecievedMessages from '../components/recievedMessages';
 
 function Messages(){
     const [messages, setMessages] = useState([]);
@@ -43,6 +43,7 @@ function Messages(){
     if (loggedInUser) {
     return(
         <div className="messages container">
+            <RecievedMessages />
             <MessagesComponent />
         </div>
     )

@@ -242,7 +242,7 @@ class DataService {
   
     async findUserById(id) {
       try {
-        const response = await axios.get(`http://127.0.0.1:5000/api/users/id/${id}`);
+        const response = await axios.get(`http://127.0.0.1:5000/api/users/findById/${id}`);
         return response.data;
       } catch (error) {
         console.error('Error finding user by ID:', error);
@@ -463,14 +463,14 @@ async deleteFeed(feed) {
   }
 }
 
-async sendMessage(message, messageSender, messageReceiver) {
+async sendMessage(newMessage) {
   try {
     const response = await axios.post('http://127.0.0.1:5000/api/messages/sendMessage', {
       params: {
-        senderId: messageSender._id,
-        senderName: messageSender.name,
-        receiverId: messageReceiver,
-        message: message
+        senderId: newMessage.loggedInUser._id,
+        senderName: newMessage.loggedInUser.name,
+        receiverId: newMessage.messageReciever,
+        message: newMessage.message
 }
     }, {
       withCredentials: true
@@ -481,6 +481,47 @@ async sendMessage(message, messageSender, messageReceiver) {
     throw error;
   }
 }
+
+async getMessages() {
+  try {
+    const response = await axios.get('http://127.0.0.1:5000/api/messages');
+    return response.data;
+  } catch (error) {
+    console.error('Error getting messages:', error);
+    throw error;
+  }
+}
+
+async getMessagesByReceiverId(id) {
+  try {
+    const response = await axios.get(`http://127.0.0.1:5000/api/messages/receiverId/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getting messages by receiver ID:', error);
+    throw error;
+  }
+}
+
+async getMessagesBySenderId(id) {
+  try {
+    const response = await axios.get(`http://127.0.0.1:5000/api/messages/senderId/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getting messages by sender ID:', error);
+    throw error;
+  }
+}
+
+async getUniqueSenders(id) {
+  try {
+    const response = await axios.get(`http://127.0.0.1:5000/api/messages/uniqueSenderIds/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getting unique senders:', error);
+    throw error;
+  }
+}
+
 
 }
 export default DataService;

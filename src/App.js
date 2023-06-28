@@ -16,6 +16,7 @@ import Login from './pages/login';
 import Logout from './pages/logout';
 import Signup from './pages/signup';
 import Messages from './pages/messages';
+import DetailedMessages from "./pages/detailedMessages";
 import DetailBid from "./pages/detailBid";
 import BidCreation from "./pages/bidCreation";
 import DetailFeed from "./pages/detailFeed";
@@ -44,6 +45,7 @@ function App() {
           <Route path="/feedCreation" element={<FeedCreation />} />
           <Route path="/bids" element={<Bids />} />
           <Route path="/messages" element={<Messages />} />
+          <Route path="/messages/:id" element={<DetailedMessages />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} /> \

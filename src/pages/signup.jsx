@@ -77,7 +77,6 @@ function handleSubmit(e) {
 
     return (
         <div className="signup container">
-            <img src="/images/pexels-photo-2908957.webp" alt="background"/>
             <h1>Signup Page</h1>
             <div>
             <form>

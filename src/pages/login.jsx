@@ -14,7 +14,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useContext } from "react";
 import DataContext from "../global/dataContext";
-// import "src/styles/background.scss";
 
 
 function Login() {
@@ -91,7 +90,7 @@ function Login() {
           </form>
           <button className='btn btn-dark' onClick={handleSubmit}>Login</button>
             <p>If you dont have an account signup below:</p>
-            <Link to="/signup">Signup</Link>
+            <Link className='btn btn-dark' to="/signup">Signup</Link>
         </div>
         </div>
         

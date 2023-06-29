@@ -11,12 +11,27 @@ function DetailFeed() {
   const { id } = useParams();
   const dataService = new DataService();
   const { loggedInUser } = useContext(DataContext);
-  const [feed, setFeed] = useState(null);
+  const [feed, setFeed] = useState('');
   const navigate = useNavigate();
+  const [user, setUser] = useState('');
 
   useEffect(() => {
     fetchFeedById();
+    findUserById(feed.originalPosterId);
   }, []);
+
+  async function findUserById(id)
+  {
+    try {
+      const response = await dataService.findUserById(id);
+      console.log('the response is', response);
+      setUser(response);
+      return response;
+    } catch (error) {
+      console.error('Error getting user:', error);
+      // Handle error
+    }
+  }
 
   async function fetchFeedById() {
     try {
@@ -72,7 +87,8 @@ function DetailFeed() {
         <div className="card">
             <div className="card-body">
                 <h5 className="card-title">Title: {feed.title}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">Original Poster: {feed.originalPosterId}</h6>
+                <h6 className="card-subtitle mb-2 text-muted">Original Poster: {user.name}</h6>
+                <h6 className="card-subtitle mb-2 text-muted">Original Poster ID: {user._id}</h6>
                 <h6 className="card-subtitle mb-2 text-muted">Date: {feed.date}</h6>
                 <p className="card-text">Post: {feed.post}</p>
                 <h6 className="card-subtitle mb-2 text-muted">Likes: {feed.likes}</h6>

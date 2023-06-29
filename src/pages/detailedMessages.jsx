@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import DataContext from '../global/dataContext';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import MessageReply from '../components/messageReply';
 
 function DetailedMessages(){
     const [messages, setMessages] = useState([]);
@@ -63,6 +64,7 @@ function DetailedMessages(){
                             <p>{message.message}</p>
                         </div>
                     ))}
+                    <MessageReply id={id}/>
                     <Link className='btn btn-dark' to="/messages">Back to Messages</Link>
                 </div>
             </div>

@@ -467,8 +467,8 @@ async sendMessage(newMessage) {
   try {
     const response = await axios.post('http://127.0.0.1:5000/api/messages/sendMessage', {
       params: {
-        senderId: newMessage.loggedInUser._id,
-        senderName: newMessage.loggedInUser.name,
+        senderId: newMessage.senderId,
+        senderName: newMessage.senderName,
         receiverId: newMessage.messageReciever,
         message: newMessage.message
 }

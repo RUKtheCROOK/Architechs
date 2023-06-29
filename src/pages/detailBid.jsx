@@ -15,11 +15,26 @@ function DetailBid() {
   const dataService = new DataService();
   const { loggedInUser } = useContext(DataContext);
   const navigate = useNavigate();
-  const [bid, setBid] = useState(null);
+  const [bid, setBid] = useState('');
+  const [user, setUser] = useState('');
 
   useEffect(() => {
     fetchBidById();
+    findUserById(bid.originalPosterId);
   }, []);
+
+  async function findUserById(id)
+  {
+    try {
+      const response = await dataService.findUserById(id);
+      console.log('the response is', response);
+      setUser(response);
+      return response;
+    } catch (error) {
+      console.error('Error getting user:', error);
+      // Handle error
+    }
+  }
 
   async function fetchBidById() {
     try {
@@ -51,7 +66,10 @@ function DetailBid() {
                 Current Bid Amount: {bid.bidAmount}
               </h6>
               <h6 className="card-subtitle mb-2 text-muted">
-                Original Poster: {bid.originalPosterId}
+                Original Poster: {user.name}
+              </h6>
+              <h6 className="card-subtitle mb-2 text-muted">
+                Original Poster ID: {user._id}
               </h6>
               <p className="card-text">BidID: {bid._id}</p>
               <h6 className="card-subtitle mb-2 text-muted">
@@ -92,8 +110,11 @@ function DetailBid() {
               Current Bid Amount: {bid.bidAmount}
             </h6>
             <h6 className="card-subtitle mb-2 text-muted">
-              Original Poster: {bid.originalPosterId}
-            </h6>
+                Original Poster: {user.name}
+              </h6>
+              <h6 className="card-subtitle mb-2 text-muted">
+                Original Poster ID: {user._id}
+              </h6>
             <p className="card-text">BidID: {bid._id}</p>
             <h6 className="card-subtitle mb-2 text-muted">
               Current Lowest Bidder: {bid.bidderName} {bid.bidderId}

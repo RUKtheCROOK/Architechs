@@ -42,7 +42,8 @@ function MessagesComponent({}){
         let newMessage = {
         message: message,
         messageReciever: messageReciever,
-        loggedInUser
+        senderId: loggedInUser._id,
+        senderName: loggedInUser.name,
         };
         let createdMessage = await dataService.sendMessage(newMessage);
         if (createdMessage) {

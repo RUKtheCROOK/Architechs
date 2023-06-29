@@ -3,7 +3,7 @@
 // import the react library
 import React from 'react';
 import './feedComponent.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DataService from '../services/dataServices';
 import { useContext } from 'react';
 import DataContext from '../global/dataContext';
@@ -12,6 +12,26 @@ import FeedLikeUnlikeComponent from './feedLikeUnlikeComponent';
 
 function FeedComponent({feed}) 
 {
+  const [user, setUser] = useState('');
+  const dataService = new DataService();
+
+  useEffect(() => {
+    findUserById(feed.originalPosterId);
+  }, []);
+
+  async function findUserById(id)
+  {
+    try {
+      const response = await dataService.findUserById(id);
+      console.log('the response is', response);
+      setUser(response);
+      return response;
+    } catch (error) {
+      console.error('Error getting user:', error);
+      // Handle error
+    }
+  }
+
     function renderLikedBy(likedBy) {
         if (!likedBy || likedBy.length === 0) {
           return 'None';
@@ -40,7 +60,8 @@ function FeedComponent({feed})
             <div className="card">
             <div className="card-body">
             <h5 className="card-title">Title: {feed.title}</h5>
-            <h6 className="card-subtitle mb-2 text-muted">Original Poster: {feed.originalPosterId}</h6>
+            <h6 className="card-subtitle mb-2 text-muted">Original Poster: {user.name}</h6>
+            <h6 className="card-subtitle mb-2 text-muted">Original Poster ID: {user._id}</h6>
             <h6 className="card-subtitle mb-2 text-muted">Date: {feed.date}</h6>
             <p className="card-text">Post: {feed.post}</p>
             <h6 className="card-subtitle mb-2 text-muted">Likes: {feed.likes}</h6>

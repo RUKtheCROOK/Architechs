@@ -1,5 +1,48 @@
-.signup{
-    h1{
-        color: red;
+.signup {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+  
+    h1 {
+      background-color: rgb(250, 210, 49);
+      color: black;
+      margin: 0 auto;
+      margin: -1px;
+      margin-bottom: 2px;
+      margin-top: 2px;
+      padding: 3px;
     }
-}
+  
+    .formClass {
+      background-color: white;
+      border-radius: 10px;
+      padding: 6px;
+      margin-bottom: 5px;
+    }
+  
+    form {
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+  
+        label {
+          margin-bottom: 5px;
+        }
+  
+        input {
+          padding: 5px;
+          border-radius: 5px;
+        }
+      }
+    }
+  
+    .btn {
+      margin-top: 10px;
+    }
+    background-image: url('../styles/image/pexels-photo-2908957.webp');
+        background-size: cover;
+        background-position: center;
+  }
+  

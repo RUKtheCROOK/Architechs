@@ -21,8 +21,8 @@ function Logout() {
     return (
         <div className="logout">
             <h1>Are you sure you want to log out?</h1>
-            <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
-            <Link to="/home" className="btn btn-primary">Cancel</Link>
+            <button className="btn btn-dark button" onClick={handleLogout}>Logout</button>
+            <Link to="/home" className="btn btn-dark button">Cancel</Link>
         </div>
     );
 }

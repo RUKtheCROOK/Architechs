@@ -41,10 +41,11 @@ function Feed(){
 
     if (loggedInUser) {
     return(
-        <div className="feed container">
-            {feeds.map((feed) => (
+        <div className="feed">
+            <h1>Feed</h1>
+            <div className="gridDisplay">{feeds.map((feed) => (
         <FeedComponent key={feed._id} feed={feed} />
-      ))}
+      ))}</div>
         </div>
     )
 }}

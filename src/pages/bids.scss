@@ -1,5 +1,30 @@
 .bids{
+    background-color: grey;
+    padding : 1px;
     h1{
-        color: red;
+        background-color: rgb(250, 210, 49);
+        color: black;
+        margin: 0 auto;
+        padding: 10px;
+        margin: -1px;
+    }
+    .gridDisplay{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 0 auto;
+    }
+    @media (max-width: 950px) {
+        .gridDisplay{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin: 0 auto;
+        }
+    }
+    @media (max-width: 550px) {
+        .gridDisplay{
+            display: grid;
+            grid-template-columns: 1fr;
+            margin: 0 auto;
+        }
     }
 }

@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import DataService from '../services/dataServices';
-import './detailBid.scss';
+import './detailFeed.scss';
 import DataContext from '../global/dataContext';
 import FeedLikeUnlikeComponenet from '../components/feedLikeUnlikeComponent';
 import { useNavigate } from 'react-router-dom';
@@ -16,8 +16,7 @@ function DetailFeed() {
   const [user, setUser] = useState('');
 
   useEffect(() => {
-    fetchFeedById();
-    findUserById(feed.originalPosterId);
+    fetchBidAndUser();
   }, []);
 
   async function findUserById(id)
@@ -39,6 +38,17 @@ function DetailFeed() {
       setFeed(fetchedFeedById);
     } catch (error) {
       console.error('Error getting Feed:', error);
+      // Handle error
+    }
+  }
+
+  async function fetchBidAndUser() {
+    try {
+      const fetchedFeedById = await dataService.getFeed(id);
+      setFeed(fetchedFeedById);
+      await findUserById(fetchedFeedById.originalPosterId);
+    } catch (error) {
+      console.error('Error getting bid or user:', error);
       // Handle error
     }
   }
@@ -83,18 +93,19 @@ function DetailFeed() {
     if (loggedInUser) {
   return (
     <div className="detailFeed">
+      <h1><u>{feed._id}</u></h1>
         {feed && (
         <div className="card">
             <div className="card-body">
-                <h5 className="card-title">Title: {feed.title}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">Original Poster: {user.name}</h6>
-                <h6 className="card-subtitle mb-2 text-muted">Original Poster ID: {user._id}</h6>
-                <h6 className="card-subtitle mb-2 text-muted">Date: {feed.date}</h6>
-                <p className="card-text">Post: {feed.post}</p>
-                <h6 className="card-subtitle mb-2 text-muted">Likes: {feed.likes}</h6>
-                <p>Liked by: {renderLikedBy(feed.likedBy)}</p>
+                <h5 className="card-title title mb-2">{feed.title}</h5>
+                <p className="card-subtitle mb-2 text-center">{feed.post}</p>
+                <p className="card-subtitle mb-2"><b><u>Original Poster:</u></b> {user.name}</p>
+                <p className="card-subtitle mb-2"><b><u>Original Poster ID:</u></b> {user._id}</p>
+                <p className="card-subtitle mb-2"><b><u>Date:</u></b> {feed.date}</p>
+                <p className="card-subtitle mb-2"><b><u>Likes:</u></b> {feed.likes}</p>
+                <p className='card-subtitle'><b><u>Liked by:</u></b> {renderLikedBy(feed.likedBy)}</p>
                 {loggedInUser && (<FeedLikeUnlikeComponenet feed={feed} fetchFeedById={fetchFeedById}/>)}
-                {loggedInUser._id === feed.originalPosterId && (<button className="btn btn-primary" onClick={deleteFeed} >Delete</button>)}
+                {loggedInUser._id === feed.originalPosterId && (<button className="btn btn-dark" onClick={deleteFeed} >Delete</button>)}
     </div>
     </div>
     )}

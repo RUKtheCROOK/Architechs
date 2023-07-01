@@ -37,18 +37,17 @@ function MessageReply({ id }) {
     
     return (
         <div className="messageReply">
-        <h1>Message Reply</h1>
         <div className="card">
             <div className="card-body">
             <div className="messageReply__message">
                 <input
                 type="text"
                 className="messageReply__message__input"
-                placeholder="Enter your message"
+                placeholder="Enter your Reply"
                 value={message}
                 onChange={textChange}
                 />
-                <button className="btn btn-primary" onClick={handleReply}>
+                <button className="btn btn-dark" onClick={handleReply}>
                 Send
                 </button>
             </div>

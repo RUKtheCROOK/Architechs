@@ -21,3 +21,13 @@
         height: fit-content;
       }
     }
+    
+    @media (max-width: 185px) {
+    .navbar-brand{
+      display: none;
+    }
+    .navbar-toggler {
+      margin: 0 auto;
+    }
+  }
+  

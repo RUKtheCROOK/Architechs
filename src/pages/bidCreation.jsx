@@ -64,22 +64,22 @@ function BidCreation() {
     
     return (
         <div className="bidCreation">
+        <h1>Create a bid post</h1>
         <div className="card">
             <div className="card-body">
             <div className="bidCreation__form">
-                <h1>Create a Bid</h1>
                 <div className="bidCreation__form__input">
                 <input
                     type="text"
-                    className="bidCreation__form__input__name"
-                    placeholder="Enter a name"
+                    className="bidCreation__form__input__name mb-1"
+                    placeholder="Enter a title"
                     name="name"
                     value={name}
                     onChange={textChange}
                 />
                 <input
                     type="text"
-                    className="bidCreation__form__input__description"
+                    className="bidCreation__form__input__description mb-1"
                     placeholder="Enter a description"
                     name="description"
                     value={description}
@@ -102,8 +102,8 @@ function BidCreation() {
                     onChange={textChange}
                 /> */}
                 </div>
-                <button className="btn btn-primary" onClick={handleSubmit}>
-                Create Bid
+                <button className="btn btn-dark button" onClick={handleSubmit}>
+                Create Bid Post
                 </button>
             </div>
             </div>

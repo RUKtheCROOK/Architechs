@@ -8,15 +8,15 @@ function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
-          <p>Subscribe to our newsletter to receive the latest updates.</p>
+          <h3>Subscribe to our newsletter to receive the latest updates:</h3>
           <form className="newsletter-form">
-            <input type="email" placeholder="Your email address" />
-            <button type="submit">Subscribe</button>
+            <input className='form-control' type="email" placeholder="Email" />
+            <button type="submit" className='btn btn-dark disabled'>Subscribe</button>
           </form>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Architechs. All rights reserved.</p>
+        <h5>&copy; {new Date().getFullYear()} Architechs. All rights reserved.</h5>
       </div>
     </footer>
   );

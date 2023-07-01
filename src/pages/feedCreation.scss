@@ -1,0 +1,17 @@
+.feedCreation{
+    h1{
+        background-color: rgb(250, 210, 49);
+        color: black;
+        margin: 0 auto;
+        padding: 10px;
+        margin: -1px;
+    }
+    .button {
+        margin-top: 3px;
+    }
+    .feedCreation__form__input{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

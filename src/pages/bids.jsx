@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BidsComponent from '../components/bidsComponent';
 import DataService from '../services/dataServices';
+import './bids.scss';
 
 function Bids() {
   const [bids, setBids] = useState([]);
@@ -23,9 +24,11 @@ function Bids() {
 
   return (
     <div className="bids">
-      {bids.map((bid) => (
+      <h1>Projects avaliable for bidding:</h1>
+      <div className="gridDisplay">{bids.map((bid) => (
         <BidsComponent key={bid._id} bid={bid} />
-      ))}
+      ))}</div>
+      
     </div>
   );
 }

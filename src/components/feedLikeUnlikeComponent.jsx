@@ -24,12 +24,8 @@ function FeedLikeUnlikeComponent({ feed, fetchFeedById }) {
 
     return (
         <div className="feedLikeUnlikeComponent">
-            <div className="card">
-                <div className="card-body">
-                    <button className="btn btn-primary" onClick={handleLike}>Like</button>
+                    <button className="btn btn-dark" onClick={handleLike}>Like/Unlike</button>
                 </div>
-            </div>
-        </div>
     );
 }
 

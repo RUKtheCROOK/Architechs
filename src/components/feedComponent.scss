@@ -1,5 +1,53 @@
-.feedComponent{
-    h1{
-        color: red;
+.feedComponent {
+    margin-bottom: 5px;
+  .title {
+    color: black;
+    margin: 0 auto;
+    margin: -1px;
+    padding-bottom: 3px;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+  .button {
+    margin : 0 auto;
+  }
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      height: fit-content;
+      width: 95%;
+      margin: 0 auto;
+  
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px;
+  
+        .card-title {
+          font-size: 16px;
+          margin-bottom: 5px;
+          text-decoration: underline;
+          font-weight: bold;
+        }
+  
+        .card-subtitle {
+          font-size: 10px;
+          margin-bottom: 3px;
+          text-align: left;
+          color: black;
+        }
+  
+        .card-text {
+          color: black;
+        }
+  
+        .btn {
+          margin-top: auto;
+          align-self: flex-end;
+        }
+      }
     }
-}
+  }
+  

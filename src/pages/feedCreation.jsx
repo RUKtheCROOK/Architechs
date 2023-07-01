@@ -53,20 +53,21 @@ function FeedCreation() {
     
     return (
         <div className="feedCreation">
+            <h1>Post to the feed</h1>
         <div className="card">
             <div className="card-body">
             <div className="feedCreation__form">
-                <h1>Create a Feed</h1>
+                
                 <div className="feedCreation__form__input">
                 <input
                     type="text"
-                    className="feedCreation__form__input__name"
+                    className="feedCreation__form__input__name mb-1"
                     placeholder="Enter a title"
                     name="title"
                     value={title}
                     onChange={textChange}
                 />
-                <textarea
+                <input
                     type="text"
                     className="feedCreation__form__input__description"
                     placeholder="Enter post content"
@@ -75,8 +76,8 @@ function FeedCreation() {
                     onChange={textChange}
                 />
                 </div>
-                <button className="btn btn-primary" onClick={handleSubmit}>
-                Create Feed
+                <button className="btn btn-dark button" onClick={handleSubmit}>
+                Create Feed Post
                 </button>
             </div>
             </div>

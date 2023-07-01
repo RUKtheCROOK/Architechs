@@ -76,9 +76,9 @@ function handleSubmit(e) {
 
 
     return (
-        <div className="signup container">
+        <div className="signup">
             <h1>Signup Page</h1>
-            <div>
+            <div className='formClass'>
             <form>
     <div className="form-group">
         <label for="formGroupExampleInput">Name</label>
@@ -99,7 +99,7 @@ function handleSubmit(e) {
 </form>
 <button className='btn btn-dark' onClick={handleSubmit}>Signup</button>
 <p>If you already have an account login below:</p>
-            <Link to="/signup">Login</Link>
+            <Link to="/login" className='btn btn-dark'>Login</Link>
         </div></div>
     )
 }

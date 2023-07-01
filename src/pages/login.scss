@@ -3,10 +3,26 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    padding-bottom: 10px;
     h1{
-        color: blue;
+        background-color: rgb(250, 210, 49);
+        color: black;
+        margin: 0 auto;
+        margin: -1px;
+        margin-bottom: 2px;
+        margin-top: 2px;
+        padding: 3px
     }
-    
+    .signupBtn {
+        margin-top: -25px;
+    }
+    .formClass {
+        background-color: white;
+        border-radius: 10px;
+        padding-left: 6px;
+        padding-right: 6px;
+        margin-bottom: 5px;
+    }
     .login-flex{
        display : flex;
        flex-direction: column;

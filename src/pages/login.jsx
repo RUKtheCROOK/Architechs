@@ -77,7 +77,7 @@ function Login() {
       
         <div className="login">
             <h1>Login Page</h1>
-            <div>
+            <div className="formClass">
             <form>
               <div className="form-group">
                 <label for="formGroupExampleInput">Email</label>
@@ -90,7 +90,7 @@ function Login() {
           </form>
           <button className='btn btn-dark' onClick={handleSubmit}>Login</button>
             <p>If you dont have an account signup below:</p>
-            <Link className='btn btn-dark' to="/signup">Signup</Link>
+            <Link className='btn btn-dark signupBtn' to="/signup">Signup</Link>
         </div>
         </div>
         

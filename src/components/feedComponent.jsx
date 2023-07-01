@@ -56,17 +56,16 @@ function FeedComponent({feed})
       }
     return(
         <div className="feedComponent container">
-            <h1>Feed Component</h1>
             <div className="card">
             <div className="card-body">
-            <h5 className="card-title">Title: {feed.title}</h5>
-            <h6 className="card-subtitle mb-2 text-muted">Original Poster: {user.name}</h6>
-            <h6 className="card-subtitle mb-2 text-muted">Original Poster ID: {user._id}</h6>
-            <h6 className="card-subtitle mb-2 text-muted">Date: {feed.date}</h6>
-            <p className="card-text">Post: {feed.post}</p>
-            <h6 className="card-subtitle mb-2 text-muted">Likes: {feed.likes}</h6>
-            <p>Liked by: {renderLikedBy(feed.likedBy)}</p>
-            <Link to={`/feed/${feed._id}`} className="btn btn-primary">View details</Link>
+            <h5 className="card-title title mb-2">{feed.title}</h5>
+                <p className="card-subtitle mb-2 text-center">{feed.post}</p>
+                <p className="card-subtitle mb-2"><b><u>Original Poster:</u></b> {user.name}</p>
+                <p className="card-subtitle mb-2"><b><u>Original Poster ID:</u></b> {user._id}</p>
+                <p className="card-subtitle mb-2"><b><u>Date:</u></b> {feed.date}</p>
+                <p className="card-subtitle mb-2"><b><u>Likes:</u></b> {feed.likes}</p>
+                <p className='card-subtitle'><b><u>Liked by:</u></b> {renderLikedBy(feed.likedBy)}</p>
+            <Link to={`/feed/${feed._id}`} className="btn btn-dark button">View details</Link>
         </div>
         </div>
         </div>

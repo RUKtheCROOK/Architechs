@@ -25,6 +25,7 @@ function BidderComponent({ bid, fetchBidById}) {
         await fetchLoggedInUser();
         await fetchBids();
         await fetchBidById();
+        setBidAmount(0);
     } catch (error) {
       console.error('Error bidding on project:', error);
       // Handle error
@@ -37,9 +38,6 @@ function BidderComponent({ bid, fetchBidById}) {
 
   return (
     <div className="bidderComponent">
-      <h1>Bidder Component</h1>
-      <div className="card">
-        <div className="card-body">
           <div className="bidderComponent__bid">
             <input
               type="number"
@@ -48,13 +46,11 @@ function BidderComponent({ bid, fetchBidById}) {
               value={bidAmount}
               onChange={textChange}
             />
-            <button className="btn btn-primary" onClick={handleBid}>
+            <button className="btn btn-dark" onClick={handleBid}>
               Bid
             </button>
           </div>
         </div>
-      </div>
-    </div>
   );
 }
 

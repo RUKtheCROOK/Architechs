@@ -38,18 +38,18 @@ function RecievedMessages() {
     
     if (loggedInUser) {
         return (
-            <div className="recievedMessages container">
+            <div className="recievedMessages">
       <h1>Received Messages</h1>
-      <div className="row">
+      <div className="center">
         {senders.map((sender) => (
-          <div key={sender.senderId} className="col-sm-12 col-md-6 col-lg-4">
+          <div key={sender.senderId} className="cardContainer">
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title">{sender.senderName}</h5>
-                <h5 className="card-title">{sender.senderId}</h5>
+                <h5 className="card-title hide">{sender.senderId}</h5>
                 <Link
                   to={`/messages/${sender.senderId}`}
-                  className="btn btn-primary"
+                  className="btn btn-dark"
                 >
                   View Messages
                 </Link>

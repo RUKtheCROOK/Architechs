@@ -1,0 +1,43 @@
+.detailBid {
+    background-color: grey;
+    padding: 1px;
+    h1{
+        background-color: rgb(250, 210, 49);
+        color: black;
+        margin: 0 auto;
+        padding: 10px;
+        margin: -1px;
+    }
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      width: 95%;
+      margin: 0 auto;
+      margin-bottom: 3px;
+        img {
+            height: 300px;
+            width: 100%;
+            border-radius: 10px;
+            margin : 0 auto;
+          }
+  }
+  .card-subtitle {
+    font-size: 10px;
+    margin-bottom: 3px;
+    text-align: left;
+  }
+  .title {
+    color: black;
+    margin: 0 auto;
+    margin: -1px;
+    padding-bottom: 3px;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+  .text {
+    color: black;
+  }
+}
+  
+  

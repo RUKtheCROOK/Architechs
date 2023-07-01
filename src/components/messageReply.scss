@@ -1,0 +1,10 @@
+.messageReply{
+    .messageReply__message{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        border : 1px solid black;
+    }
+}

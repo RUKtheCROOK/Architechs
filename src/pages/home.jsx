@@ -14,7 +14,6 @@ function Home(){
                     </div>
                 </div>
             </div>
-            <div className="container text-center"><p>Check The Feed</p></div>
             <div id="carouselExampleCaptions" className="carousel slide">
                 <div className="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -25,22 +24,22 @@ function Home(){
                 <div className="carousel-item active">
                     <img src="/images/dtKu8DBhmz6itQKE2dRgAW.jpg" className="d-block w-100" alt="..."/>
                     <div className="carousel-caption d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                    <h5>The site's intention</h5>
+                    <p>I wanted something that would allow projects to be bid on, messages to be sent and recieved, and have a feed with posts that were able to be liked</p>
                     </div>
                 </div>
                 <div className="carousel-item">
                     <img src="/images/flatten.webp" className="d-block w-100" alt="..."/>
                     <div className="carousel-caption d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
+                    <h5>What I wanted to learn</h5>
+                    <p>I learn as much as I could so I opted to try and make everything from scratch with as little help as possible from the internet</p>
                     </div>
                 </div>
                 <div className="carousel-item">
                     <img src="/images/p0d1nww7.jpg" className="d-block w-100" alt="..."/>
                     <div className="carousel-caption d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+                    <h5>What I learned</h5>
+                    <p>The organization of the project is the hardest part. The coding was mostly smooth sailing, but how data is stored and recieved needs to be carfully thougth out</p>
                     </div>
                 </div>
                 </div>
@@ -55,33 +54,35 @@ function Home(){
             </div>
             <br/>
             <div className="container text-center">
-                <p>News</p>
-                <div className="container flexbox">
-                <div className="card mt-1 ms-1 me-1" styles="width: 18rem;">
-                    <img src="/images/gang-aqua-451086435-56a02fca3df78cafdaa06fee.jpg" className="card-img-top" alt="..."/>
-                    <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div className="card mt-1 ms-1 me-1 hide2" styles="width: 18rem;">
-                    <img src="/images/p0d1nww7.jpg" className="card-img-top" alt="..."/>
-                    <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div className="card mt-1 ms-1 me-1 hide" styles="width: 18rem;">
-                    <img src="/images/scale.webp" className="card-img-top" alt="..."/>
-                    <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                </div></div>
+  <p>News</p>
+  <div className="container flexbox">
+    <div className="card mt-1 ms-1 me-1" style={{ width: '18rem' }}>
+      <img src="/images/gang-aqua-451086435-56a02fca3df78cafdaa06fee.jpg" className="card-img-top" alt="Architecture News" />
+      <div className="card-body">
+        <h5 className="card-title">World's Tallest Skyscraper Unveiled</h5>
+        <p className="card-text">Architectural marvel "Infinity Tower" has been revealed, soaring to a height of 3,000 feet. It sets a new record as the tallest building in the world, surpassing the previous titleholder by 500 feet.</p>
+        <a href="#" className="btn btn-dark">Read More</a>
+      </div>
+    </div>
+    <div className="card mt-1 ms-1 me-1 hide2" style={{ width: '18rem' }}>
+      <img src="/images/p0d1nww7.jpg" className="card-img-top" alt="Architecture News" />
+      <div className="card-body">
+        <h5 className="card-title">Floating Cities: The Future of Urban Living</h5>
+        <p className="card-text">In an ambitious project, architects are designing fully self-sustainable floating cities. These cities aim to address the challenges of rising sea levels and overpopulation, offering a unique solution for the future.</p>
+        <a href="#" className="btn btn-dark">Read More</a>
+      </div>
+    </div>
+    <div className="card mt-1 ms-1 me-1 hide" style={{ width: '18rem' }}>
+      <img src="/images/scale.webp" className="card-img-top" alt="Architecture News" />
+      <div className="card-body">
+        <h5 className="card-title">Revolutionary Green Building Material Discovered</h5>
+        <p className="card-text">Scientists have developed a groundbreaking eco-friendly building material that absorbs carbon dioxide from the air. This innovation has the potential to revolutionize the construction industry and combat climate change.</p>
+        <a href="#" className="btn btn-dark">Read More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
         </div>
     )
 }

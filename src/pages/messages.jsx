@@ -42,7 +42,7 @@ function Messages(){
 
     if (loggedInUser) {
     return(
-        <div className="messages container">
+        <div className="messages">
             <RecievedMessages />
             <MessagesComponent />
         </div>

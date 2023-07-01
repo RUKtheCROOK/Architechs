@@ -34,26 +34,22 @@ function BiddingHistoryComponent({ bid }) {
     return (
         // for each bid history, display the bidder name and the bid amount
         <div className="biddingHistoryComponent">
-            <div className="card">
-                <div className="card-body">
                     {history.map((history) => (
                         <div className="card">
                             <div className="card-body">
-                                <h6 className="card-subtitle mb-2 text-muted">
-                                    Bidder Name: {history.bidderName}
+                                <h6 className="card-subtitle mb-2">
+                                    <b><u>Bidder Name:</u></b> {history.bidderName}
                                 </h6>
-                                <h6 className="card-subtitle mb-2 text-muted">
-                                    Bid Amount: {history.bidAmount}
+                                <h6 className="card-subtitle mb-2">
+                                    <b><u>Bid Amount:</u></b> {history.bidAmount}
                                 </h6>
-                                <h6 className="card-subtitle mb-2 text-muted">
-                                    Bid Date: {history.bidDate}
+                                <h6 className="card-subtitle mb-2">
+                                    <b><u>Bid Date:</u></b> {history.bidDate}
                                 </h6>
                             </div>
                         </div>
                     ))}
                 </div>
-            </div>
-        </div>
     );}
 
 }

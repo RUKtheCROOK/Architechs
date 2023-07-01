@@ -42,7 +42,7 @@ function ScrollListener() {
           <Link className="nav-link link" aria-current="page" to="/home">🏡 Home</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link link" aria-current="page" to="/bids">Bids</Link>
+          <Link className="nav-link link" aria-current="page" to="/bids">Active Bidding</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link link" aria-current="page" to="/login">Login</Link>
@@ -68,29 +68,34 @@ function ScrollListener() {
         <li className="nav-item">
           <Link className="nav-link link" aria-current="page" to="/home">🏡 Home</Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link link" aria-current="page" to="/bids">Bids</Link>
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Bids
+          </a>
+          <ul className="dropdown-menu">
+            <li><Link className="dropdown-item" to="/bids">Active Bidding</Link></li>
+            <li><Link className="dropdown-item" to="/bidCreation">Create Bid Post</Link></li>
+          </ul>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link link" aria-current="page" to="/feed">feed</Link>
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Feed
+          </a>
+          <ul className="dropdown-menu">
+            <li><Link className="dropdown-item" to="/feed">Feed</Link></li>
+            <li><Link className="dropdown-item" to="/feedCreation">Feed Creation</Link></li>
+          </ul>
         </li>
         <li className="nav-item">
           <Link className="nav-link link" aria-current="page" to="/profile">profile</Link>
         </li>
         <li className="nav-item">
+          <Link className="nav-link link" aria-current="page" to="/messages">Messages</Link>
+        </li>
+        <li className="nav-item">
           <Link className="nav-link link" aria-current="page" to="/logout">logout</Link>
         </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Messages
-          </a>
-          <ul className="dropdown-menu">
-            <li><Link className="dropdown-item" to="/messages">Direct Messages</Link></li>
-            <li><Link className="dropdown-item" to="/bidCreation">Bid Creation</Link></li>
-            <li><hr className="dropdown-divider" /></li>
-            <li><Link className="dropdown-item" to="/feedCreation">Feed Creation</Link></li>
-          </ul>
-        </li>
+        
       </ul>
     </div>
   </div>

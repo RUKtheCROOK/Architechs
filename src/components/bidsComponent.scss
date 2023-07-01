@@ -1,5 +1,66 @@
-.bidsComponent{
-    h2{
-        color: black;
+.bidsComponent {
+    margin-bottom: 5px;
+  .title {
+    color: black;
+    margin: 0 auto;
+    margin: -1px;
+    padding-bottom: 3px;
+    text-transform: uppercase;
+  }
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      height: fit-content;
+      width: 95%;
+      margin: 0 auto;
+  
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px;
+  
+        .flex-custom {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+  
+          img {
+            height: 100px;
+            width: 80px;
+            border-radius: 10px;
+            margin-right: 3px;
+          }
+  
+          .text {
+            display: flex;
+            flex-direction: column;
+  
+            .card-title {
+              font-size: 16px;
+              margin-bottom: 5px;
+              text-decoration: underline;
+              font-weight: bold;
+            }
+  
+            .card-subtitle {
+              font-size: 10px;
+              margin-bottom: 3px;
+              text-align: left;
+              color : black;
+            }
+          }
+  
+          .btn {
+            margin-left: auto;
+          }
+        }
+  
+        .card-subtitle:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
-}
+  }
+  

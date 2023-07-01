@@ -54,21 +54,21 @@ function DetailedMessages(){
 
     if (loggedInUser) {
     return(
-        <div className="detailedMessages container">
-            <div className="card">
-                <div className="card-body">
-                    {user &&(<h5 className="card-title">Messages from {user.name}</h5>)}
-                    {messages.map((message) => (
-                        <div className="card" key={message._id}>
-                            <h3>Sent on:{message.date}</h3>
-                            <p>{message.message}</p>
+        <div className="detailedMessages">
+          {user &&(<h5 className="card-title">Messages from {user.name} {user._id}</h5>)}
+          <div className="container messageBoard">
+            <div className="card cardCustom">{messages.map((message) => (
+                        <div className="card mb-1 cardCustom2" key={message._id}>
+                            <p>{message.date}</p>
+                            <h3>{message.message}</h3>
                         </div>
-                    ))}
+                    ))}</div>
+            
                     <MessageReply id={id}/>
-                    <Link className='btn btn-dark' to="/messages">Back to Messages</Link>
+                    <Link className='btn btn-dark' to="/messages">Back to Messages</Link></div>
+                    
+                    
                 </div>
-            </div>
-        </div>
     )
 }
 }

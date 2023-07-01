@@ -56,20 +56,17 @@ function MessagesComponent({}){
 
     return (
         <div className="messagesComponent">
-            <div className="card">
-                <div className="card-body">
-                    <form>
+            <div className="formClass container"><form>
                         <div className="form-group">
                             <label htmlFor="messageReciever">Send message to:</label>
                             <input type="text" className="form-control" name="messageReciever" value={messageReciever} onChange={textChange} />
                             <label htmlFor="message">Message:</label>
                             <input type="text" className="form-control" name="message" value={message} onChange={textChange} />
                         </div>
-                        <button type="button" className="btn btn-primary" onClick={handleSubmit}>Send</button>
-                    </form>
+                        <button type="button" className="btn btn-dark mt-1" onClick={handleSubmit}>Send</button>
+                    </form></div>
+                    
                 </div>
-            </div>
-        </div>
     );
 }   
 

@@ -59,9 +59,9 @@ function MessagesComponent({}){
             <div className="formClass container"><form>
                         <div className="form-group">
                             <label htmlFor="messageReciever">Send message to:</label>
-                            <input type="text" className="form-control" name="messageReciever" value={messageReciever} onChange={textChange} />
+                            <input type="text" className="form-control" name="messageReciever" placeholder="Enter user's Id" value={messageReciever} onChange={textChange} />
                             <label htmlFor="message">Message:</label>
-                            <input type="text" className="form-control" name="message" value={message} onChange={textChange} />
+                            <input type="text" className="form-control" name="message" placeholder='Enter message' value={message} onChange={textChange} />
                         </div>
                         <button type="button" className="btn btn-dark mt-1" onClick={handleSubmit}>Send</button>
                     </form></div>

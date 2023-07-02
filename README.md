@@ -1,72 +1,9 @@
-# Getting Started with Create React App
+The read me section for my project:
+# Architechs
+Description: The website was initially intended to allow users to be able to post a project to be bid on by other users/teams to find a team for the project at the cheapest possible price. I wanted to also have some news that would be added by admins on the home page and then a feed page that users could use to make post and share their work and show their like for others works.Finally I wanted a messaging page where users would be able to send other users messages and recieve messages from other users.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Functionality that is working: The website is able to allow users to sign up and login and logout. The users are able to post projects to be bid on and view other users projects to be bid on. Users are able to bid on projects. The users are also able to make feed posts. The users are able to like other users feed posts. After looking back I do think that I couldve added comments to feed posts realtivley easily, however that is not a functional capability at this moment. The users are able to view the bidding page and bid history and view the feed. The users are able to send messages to other users and recieve messages from other users.
 
-## Available Scripts
+The technologies that I used were: React, MongoDB, Mongoose, Bootstrap, Axios, Flask, Python, Certifi, and Pymongo.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# Architechs" 
-"# Architechs" 
+The steps to run the project are: do 'npm install' to install the dependencies. Then npm start to start the front end. Then do a virtual environment and pip install flask, flask-cors, and flask-pymongo. Then run the server using 'py server.py' and the project should be running.
